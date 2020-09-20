@@ -1,7 +1,7 @@
 # DeliGranREST
 C Framework para aplicaciones REST
 
-Esta aplicación la construyo pensando que **en lo sencillo está la grandeza**, para lo cual me baso y uso lo siguiente:
+Desligran se basa y uso lo siguiente:
 
 - [GNU Libmicrohttpd](https://www.gnu.org/software/libmicrohttpd/)
 - [The GnuTLS Transport Layer Security Library](https://www.gnutls.org/)
@@ -31,7 +31,7 @@ En este repositorio iré publicando los binarios con el fin que las personas int
 - Integración con REDIS
 - Integración con PostgreSQL
 - Generador de proyectos con OpenAPI
-- Iré agregando más
+- Iré agregando más ...
 
 ## Empecemos con lo ya implementado:
 
@@ -66,6 +66,7 @@ deligran-utils-log:
 
 Usando la configuración con **libDeliGranRest** y **libDeliGranUtils**
 
+### Principal:
 ```c
 DeliGranRest oDeliGranRest;
 DGULog oDGULog;
@@ -104,8 +105,76 @@ int main(void) {
   return 0;
 }
 ```
+### Controlador:
 
-Puede verificar por consola o archivo el log:
+Archivo cabecera
+```c
+#ifndef EMPRESAS_CONTROLLER_H
+#define EMPRESAS_CONTROLLER_H
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+  typedef struct EmpresasController {
+    void (*listarEmpresas)(DGRRequest *request, DGRResponse *response, void *userData);
+  } EmpresasController;
+
+  extern struct EmpresasControllerClass {
+    EmpresasController (*new)();
+  } EmpresasControllerEntity;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // EMPRESAS_CONTROLLER_H
+
+```
+Archivo fuente
+```c
+DGULog oDGULog;
+
+void listHeaders(int index, string key, void *value) {
+  oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                   "Header -> Index: %i Key: %s Value: %s", index, key, value);
+}
+
+void listarEmpresas(DGRRequest *request, DGRResponse *response, void *userData) {
+  oDGULog.writeLog(oDGULog.getLeves().DEBUG, DGULFile, DGULFunction, DGULLine,
+                   "Invocando listarEmpresas");
+  
+  oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                   "------------------------------------------------");
+
+  DGUHashTableUserEntity.forEach(DGRRequestUserEntity.getHeaders(request), listHeaders);
+  
+  oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                   "------------------------------------------------");
+  
+  puts(DGRRequestUserEntity.getUrl(request));
+}
+
+static EmpresasController new() {
+  EmpresasController oEmpresasController = {
+      .listarEmpresas = &listarEmpresas,
+  };
+
+  return oEmpresasController;
+}
+
+struct EmpresasControllerClass EmpresasControllerEntity = {.new = &new};
+```
+
+Consola o archivo el log:
 
 ![initial-log-1, Initial log 1](images/initial-log-1.png)
+
+Prueba con Postman:
+
+![initial-log-1, Initial log 1](images/postman-get-1.png)
+
+Consola o archivo el log:
+
 ![initial-log-1, Initial log 1](images/initial-log-2.png)

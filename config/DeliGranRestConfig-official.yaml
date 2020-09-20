@@ -1,0 +1,42 @@
+deligran-rest:
+  config:
+    # THIS_FILE or CONFIG_SERVER
+    type: THIS_FILE
+    config-server:
+      url: http://url-config-server
+      port: 8080
+      authentication:
+        type:
+          # CREDENTIALS or CERTIFICATE
+          active: CREDENTIALS
+          credentials:
+            user-name: username
+            password: password
+          certificate:
+            name: name-certificate.cert
+            path: /path/to/dir
+
+  application:
+    port: 8081
+    # IPV4, IPV6 or IPV4_AND_IPV6
+    network-type: IPV4 # Por confirmar
+    # "type-channel-name-version" used for name base path and file log
+    type: business
+    channel: sales
+    name: products
+    version: v1
+    description:
+      Inicios de DeliGran REST C Framework
+    # Replace base path
+    custom-name:
+
+deligran-utils-log:
+  config:
+    # CONSOLE, FILE or CONSOLE_AND_FILE
+    type: CONSOLE_AND_FILE
+    level: ALL
+    format-date-time: "%d/%m/%Y %H:%M:%S.%MCS"
+    file:
+      path: /Users/jarley/Desktop/fuentes/qt/DeliGran/log
+      max-size: 20M
+      max-count: 20
