@@ -67,6 +67,9 @@ deligran-utils-log:
 Usando la configuración con **libDeliGranRest** y **libDeliGranUtils**
 
 ### Principal:
+
+Archivo fuente:
+
 ```c
 DeliGranRest oDeliGranRest;
 DGULog oDGULog;
@@ -107,10 +110,14 @@ int main(void) {
 ```
 ### Controlador:
 
-Archivo cabecera
+Archivo cabecera:
+
 ```c
 #ifndef EMPRESAS_CONTROLLER_H
 #define EMPRESAS_CONTROLLER_H
+
+#include "DGRRequestUser.h"
+#include "DGRResponseUser.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -118,7 +125,7 @@ extern "C"
 #endif
 
   typedef struct EmpresasController {
-    void (*listarEmpresas)(DGRRequest *request, DGRResponse *response, void *userData);
+    void (*listarEmpresas)(DGRRequest *request, DGRResponse *response);
   } EmpresasController;
 
   extern struct EmpresasControllerClass {
@@ -132,8 +139,13 @@ extern "C"
 #endif // EMPRESAS_CONTROLLER_H
 
 ```
-Archivo fuente
+Archivo fuente:
+
 ```c
+#include "include/EmpresasController.h"
+
+#include "DGUHashTableUser.h"
+
 DGULog oDGULog;
 
 void listHeaders(int index, string key, void *value) {
@@ -141,7 +153,7 @@ void listHeaders(int index, string key, void *value) {
                    "Header -> Index: %i Key: %s Value: %s", index, key, value);
 }
 
-void listarEmpresas(DGRRequest *request, DGRResponse *response, void *userData) {
+void listarEmpresas(DGRRequest *request, DGRResponse *response) {
   oDGULog.writeLog(oDGULog.getLeves().DEBUG, DGULFile, DGULFunction, DGULLine,
                    "Invocando listarEmpresas");
   
