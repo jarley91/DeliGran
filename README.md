@@ -8,25 +8,25 @@ Desligran se basa y uso lo siguiente:
 - [SDS - Simple Dynamic Strings](https://github.com/antirez/sds)
 - [libfyaml](https://github.com/pantoniou/libfyaml)
 - [hashdict.c](https://github.com/exebook/hashdict.c)
+- [ulfius](https://github.com/babelouest/ulfius)
 
 Cada implementación siempre está en hacerlo lo más simple y sencillo posible dentro de un ecosistema puro en **Lenguaje C**, esto con el fin de que sea un producto facil de implementar pero sin perder la solidez y robustes que proporciona el **Lenguaje C**
 
 En este repositorio iré publicando los binarios con el fin que las personas interesadas en lo descrito líneas arriba puedan ir haciendo sus pruebas.
 
 ## Lo implementado:
-- Configuración en base a un archivo o texto YAML
-- Servidor HTTP
+- Configuración en base a un archivo o texto YAML/JSON
+- Servidor HTTP y HTTPS
 - Manejo de logs
-- Agregar Endpoints
+- Endpoints
 - Implementación de Controlador
+- Integración YAML/JSON
 
 ## A implementar:
 - Integración con un servidor de configuración
-- Servidor HTTPS
 - Niveles de logs control de archivos generados
 - Encriptar datos sensibles
 - OAuth 2.0
-- Integración con JSON
 - Integración con Kubernetes
 - Integración con REDIS
 - Integración con PostgreSQL
@@ -35,17 +35,33 @@ En este repositorio iré publicando los binarios con el fin que las personas int
 
 ## Empecemos con lo ya implementado:
 
-Para iniciar el servidor web, es necesario tener la siguiente configuración en un archivo o texto:
+Para iniciar el servidor web, es necesario tener la siguiente configuración en un archivo o texto YAML:
 
 ```yaml
 deligran-rest:
   config:
     # THIS_FILE or CONFIG_SERVER
     type: THIS_FILE
-application:
+  server:
     port: 8081
-    # IPV4, IPV6 or IPV4_AND_IPV6
-    network-type: IPV4 # Por confirmar si se mantiene
+    # IPV4, IPV6 or ALL
+    network-type: IPV4
+    # HTTP or HTTPS
+    protocol: HTTPS
+    root-ca-private-key:
+      -----BEGIN ENCRYPTED PRIVATE KEY-----
+      .
+      .
+      .
+      -----END ENCRYPTED PRIVATE KEY-----
+    root-ca-private-key-password: password
+    root-ca-certificate:
+      -----BEGIN CERTIFICATE-----
+      .
+      .
+      .
+      -----END CERTIFICATE-----
+  application:
     # "type-channel-name-version" used for name base path and file log
     type: business
     channel: sales
@@ -59,6 +75,7 @@ deligran-utils-log:
     # CONSOLE, FILE or CONSOLE_AND_FILE
     type: CONSOLE_AND_FILE
     level: ALL
+    # format sys/time was added %MCS = Microseconds and %MLS = Milliseconds
     format-date-time: "%d/%m/%Y %H:%M:%S.%MCS"
     file:
       path: /path/to/log/file
@@ -71,6 +88,10 @@ Usando la configuración con **libDeliGranRest** y **libDeliGranUtils**
 Archivo fuente:
 
 ```c
+#include "DeliGranRest.h"
+
+#include "controllers/include/EmpresasController.h"
+
 DeliGranRest oDeliGranRest;
 DGULog oDGULog;
 
@@ -128,7 +149,7 @@ extern "C"
     void (*listarEmpresas)(DGRRequest *request, DGRResponse *response);
   } EmpresasController;
 
-  extern struct EmpresasControllerClass {
+  extern struct EmpresasControllerEntity {
     EmpresasController (*new)();
   } EmpresasControllerEntity;
 
@@ -176,7 +197,7 @@ static EmpresasController new() {
   return oEmpresasController;
 }
 
-struct EmpresasControllerClass EmpresasControllerEntity = {.new = &new};
+struct EmpresasControllerEntity EmpresasControllerEntity = {.new = &new};
 ```
 
 Consola o archivo el log:
