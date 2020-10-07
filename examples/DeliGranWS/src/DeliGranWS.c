@@ -17,7 +17,7 @@ int main(void) {
   
   if(oDeliGranRest) {
     logger = DeliGranRestEntity.getDGULog(oDeliGranRest);
-    bool isLoadConfig = DeliGranRestEntity.loadConfigFromFile(oDeliGranRest, "/Users/jarley/Desktop/fuentes/qt/deligranrest/DeliGran/config/yaml/DeliGranRestConfig.yaml");
+    bool isLoadConfig = DeliGranRestEntity.loadConfigFromFile(oDeliGranRest, "/path/to/log/file/DeliGranRestConfig.yaml");
 
     if(isLoadConfig) {
       DGULogEntity.writeLog(logger, DGULogEntity.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
