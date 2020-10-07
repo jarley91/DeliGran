@@ -121,9 +121,9 @@ int main(void) {
       DGREndpointEntity.destroy(oDGREndpoint);
       DeliGranRestEntity.start(oDeliGranRest);
     } else {
-      oDGULog = DGULogEntity.new();
-      oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
-                      "Error al cargar configuración desde archivo Yaml");
+      logger = DGULogEntity.new();
+      DGULogEntity.writeLog(logger, DGULogEntity.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                            "Error al cargar configuración desde archivo Yaml");
     }
   } else {
     logger = DGULogEntity.new();
