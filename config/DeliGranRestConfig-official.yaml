@@ -2,24 +2,26 @@ deligran-rest:
   config:
     # THIS_FILE or CONFIG_SERVER
     type: THIS_FILE
-    config-server:
-      url: http://url-config-server
-      port: 8080
-      authentication:
-        type:
-          # CREDENTIALS or CERTIFICATE
-          active: CREDENTIALS
-          credentials:
-            user-name: username
-            password: password
-          certificate:
-            name: name-certificate.cert
-            path: /path/to/dir
-
-  application:
+  server:
     port: 8081
-    # IPV4, IPV6 or IPV4_AND_IPV6
-    network-type: IPV4 # Por confirmar
+    # IPV4, IPV6 or ALL
+    network-type: IPV4
+    # HTTP or HTTPS
+    protocol: HTTPS
+    root-ca-private-key:
+      -----BEGIN ENCRYPTED PRIVATE KEY-----
+      .
+      .
+      .
+      -----END ENCRYPTED PRIVATE KEY-----
+    root-ca-private-key-password: password
+    root-ca-certificate:
+      -----BEGIN CERTIFICATE-----
+      .
+      .
+      .
+      -----END CERTIFICATE-----
+  application:
     # "type-channel-name-version" used for name base path and file log
     type: business
     channel: sales
@@ -27,16 +29,13 @@ deligran-rest:
     version: v1
     description:
       Inicios de DeliGran REST C Framework
-    # Replace base path
-    custom-name:
 
 deligran-utils-log:
   config:
     # CONSOLE, FILE or CONSOLE_AND_FILE
     type: CONSOLE_AND_FILE
     level: ALL
+    # format sys/time was added %MCS = Microseconds and %MLS = Milliseconds
     format-date-time: "%d/%m/%Y %H:%M:%S.%MCS"
     file:
-      path: /Users/jarley/Desktop/fuentes/qt/DeliGran/log
-      max-size: 20M
-      max-count: 20
+      path: /path/to/log/file

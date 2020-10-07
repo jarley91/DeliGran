@@ -1,7 +1,7 @@
 # DeliGranREST
 C Framework para aplicaciones REST
 
-Desligran se basa y uso lo siguiente:
+DeliGran se basa y usa lo siguiente:
 
 - [GNU Libmicrohttpd](https://www.gnu.org/software/libmicrohttpd/)
 - [The GnuTLS Transport Layer Security Library](https://www.gnutls.org/)
@@ -10,21 +10,21 @@ Desligran se basa y uso lo siguiente:
 - [hashdict.c](https://github.com/exebook/hashdict.c)
 - [ulfius](https://github.com/babelouest/ulfius)
 
-Cada implementación siempre está en hacerlo lo más simple y sencillo posible dentro de un ecosistema puro en **Lenguaje C**, esto con el fin de que sea un producto facil de implementar pero sin perder la solidez y robustes que proporciona el **Lenguaje C**
+Cada implementación siempre está hecha simple y sencilla dentro de un ecosistema puro en **C**, esto con el fin de que sea un producto fácil de implementar, pero sin perder la solidez y robustez que brinda el **C**
 
-En este repositorio iré publicando los binarios con el fin que las personas interesadas en lo descrito líneas arriba puedan ir haciendo sus pruebas.
+En este repositorio iré publicando los binarios con el fin de que las personas interesadas puedan ir haciendo sus pruebas.
 
 ## Lo implementado:
 - Configuración en base a un archivo o texto YAML/JSON
 - Servidor HTTP y HTTPS
-- Manejo de logs
+- Logger
 - Endpoints
 - Implementación de Controlador
 - Integración YAML/JSON
 
 ## A implementar:
 - Integración con un servidor de configuración
-- Niveles de logs control de archivos generados
+- Niveles de logs, control de archivos generados
 - Encriptar datos sensibles
 - OAuth 2.0
 - Integración con Kubernetes
@@ -33,9 +33,9 @@ En este repositorio iré publicando los binarios con el fin que las personas int
 - Generador de proyectos con OpenAPI
 - Iré agregando más ...
 
-## Empecemos con lo ya implementado:
+## Empecemos:
 
-Para iniciar el servidor web, es necesario tener la siguiente configuración en un archivo o texto YAML:
+Para iniciar el servidor web, es necesario tener la siguiente configuración en un archivo o texto YAML/JSON:
 
 ```yaml
 deligran-rest:
@@ -92,38 +92,43 @@ Archivo fuente:
 
 #include "controllers/include/EmpresasController.h"
 
-DeliGranRest oDeliGranRest;
-DGULog oDGULog;
+DGULog *logger;
+DeliGranRest *oDeliGranRest;
 
 int main(void) {
   oDeliGranRest = DeliGranRestEntity.new();
-  bool isLoadConfig = oDeliGranRest.loadConfigFromFile("/path/to/log/file/DeliGranRestConfig.yaml");
 
-  oDGULog = oDeliGranRest.getDGULog();
+  if(oDeliGranRest) {
+    bool isLoadConfig = oDeliGranRest.loadConfigFromFile("/path/to/log/file/DeliGranRestConfig.yaml");
 
-  if(isLoadConfig) {
-    oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
-                     "Configuración cargada con éxito");
+    if(isLoadConfig) {
+      logger = DeliGranRestEntity.getDGULog(oDeliGranRest);
+      DGULogEntity.writeLog(logger, DGULogEntity.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                            "Configuración cargada con éxito");
 
-    EmpresasController oEmpresasController = EmpresasControllerEntity.new();
-    DGREndpoint *oDGREndpoint = DGREndpointEntity.new();
-    DGREndpointEntity.setHttpMethod(oDGREndpoint, oDeliGranRest.getHttp()->getMethods().GET);
-    DGREndpointEntity.setUrlPath(oDGREndpoint, "/test/list/business");
-    DGREndpointEntity.addConsume(oDGREndpoint, oDeliGranRest.getHttp()->getMediaTypes().APPLICATION_JSON);
-    DGREndpointEntity.addConsume(oDGREndpoint, oDeliGranRest.getHttp()->getMediaTypes().APPLICATION_XML);
-    DGREndpointEntity.addConsume(oDGREndpoint, oDeliGranRest.getHttp()->getMediaTypes().TEXT_PLAIN);
-    DGREndpointEntity.addProduce(oDGREndpoint, oDeliGranRest.getHttp()->getMediaTypes().APPLICATION_JSON);
-    oDGREndpoint->callbackFunction = oEmpresasController.listarEmpresas;
-    oDeliGranRest.addEndpoint(oDGREndpoint);
-    
-    DGREndpointEntity.destroy(oDGREndpoint);
-
-    oDeliGranRest.start();
-
+      EmpresasControllerEntity.setDGULog(logger);
+      EmpresasController *oEmpresasController = EmpresasControllerEntity.new();
+      DGREndpoint *oDGREndpoint = DGREndpointEntity.new();
+      DGREndpointEntity.setHttpMethod(oDGREndpoint, DeliGranRestEntity.getHttp()->getMethods().GET);
+      DGREndpointEntity.setUrlPath(oDGREndpoint, "/test/list/business");
+      DGREndpointEntity.addConsume(oDGREndpoint, DeliGranRestEntity.getHttp()->getMediaTypes().APPLICATION_JSON);
+      DGREndpointEntity.addConsume(oDGREndpoint, DeliGranRestEntity.getHttp()->getMediaTypes().APPLICATION_XML);
+      DGREndpointEntity.addConsume(oDGREndpoint, DeliGranRestEntity.getHttp()->getMediaTypes().TEXT_PLAIN);
+      DGREndpointEntity.addProduce(oDGREndpoint, DeliGranRestEntity.getHttp()->getMediaTypes().APPLICATION_JSON);
+      DGREndpointEntity.setCallbackFunction(oDGREndpoint, oEmpresasController->listarEmpresas);
+      DeliGranRestEntity.addEndpoint(oDeliGranRest, oDGREndpoint);
+      
+      DGREndpointEntity.destroy(oDGREndpoint);
+      DeliGranRestEntity.start(oDeliGranRest);
+    } else {
+      oDGULog = DGULogEntity.new();
+      oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                      "Error al cargar configuración desde archivo Yaml");
+    }
   } else {
-    oDGULog = DGULogEntity.new();
-    oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
-                     "Error al cargar configuración desde archivo Yaml");
+    logger = DGULogEntity.new();
+    DGULogEntity.writeLog(logger, DGULogEntity.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                          "Error al crear DeliGranRest");
   }
   
   return 0;
@@ -137,20 +142,23 @@ Archivo cabecera:
 #ifndef EMPRESAS_CONTROLLER_H
 #define EMPRESAS_CONTROLLER_H
 
-#include "DGRRequestUser.h"
-#include "DGRResponseUser.h"
-
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+  #include "DGULog.h"
+
+  #include "DGRRequest.h"
+  #include "DGRResponse.h"
 
   typedef struct EmpresasController {
     void (*listarEmpresas)(DGRRequest *request, DGRResponse *response);
   } EmpresasController;
 
   extern struct EmpresasControllerEntity {
-    EmpresasController (*new)();
+    EmpresasController *(*new)();
+    void (*setDGULog)(DGULog *oDGULog);
   } EmpresasControllerEntity;
 
 #ifdef __cplusplus
@@ -158,46 +166,113 @@ extern "C"
 #endif
 
 #endif // EMPRESAS_CONTROLLER_H
-
 ```
 Archivo fuente:
 
 ```c
 #include "include/EmpresasController.h"
 
-#include "DGUHashTableUser.h"
+#include "DGUHashTable.h"
+#include "DGUMarkup.h"
+#include "DGUString.h"
+#include "DGUMemory"
 
-DGULog oDGULog;
+#include "include/EmpresasController.h"
+
+#include "../../../DeliGranUtils/lib/entities/DGUHashTable.h"
+#include "../../../DeliGranUtils/lib/entities/DGUMarkup.h"
+#include "../../../DeliGranUtils/lib/entities/DGUString.h"
+#include "../../../DeliGranUtils/lib/entities/DGUMemory.h"
+
+DGULog *logger;
+
+void setDGULogEmpresasController(DGULog *oDGULog) {
+  logger = oDGULog;
+}
 
 void listHeaders(int index, string key, void *value) {
-  oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
-                   "Header -> Index: %i Key: %s Value: %s", index, key, value);
+  DGULogEntity.writeLog(logger, DGULogEntity.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                        "Header -> Index: %i Key: %s Value: %s", index, key, value);
 }
 
 void listarEmpresas(DGRRequest *request, DGRResponse *response) {
-  oDGULog.writeLog(oDGULog.getLeves().DEBUG, DGULFile, DGULFunction, DGULLine,
-                   "Invocando listarEmpresas");
+  DGULogEntity.writeLog(logger, DGULogEntity.getLeves().DEBUG, DGULFile, DGULFunction, DGULLine,
+                        "Invocando listarEmpresas");
   
-  oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
-                   "------------------------------------------------");
+  DGULogEntity.writeLog(logger, DGULogEntity.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                        "------------------------------------------------");
 
-  DGUHashTableUserEntity.forEach(DGRRequestUserEntity.getHeaders(request), listHeaders);
+  DGUHashTableEntity.forEach(DGRRequestEntity.getHeaders(request), listHeaders);
   
-  oDGULog.writeLog(oDGULog.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
-                   "------------------------------------------------");
+  DGULogEntity.writeLog(logger, DGULogEntity.getLeves().INFO, DGULFile, DGULFunction, DGULLine,
+                        "------------------------------------------------");
   
-  puts(DGRRequestUserEntity.getUrl(request));
+  DGUMarkup *oDGUMarkup = DGUMarkupEntity.new();
+  
+  DGUMarkupEntity.setStringDocument(oDGUMarkup, DGRRequestEntity.getBody(request));
+  
+  string idTest = DGUMarkupEntity.getStringValue(oDGUMarkup, "/id");
+  string nameTest = DGUMarkupEntity.getStringValue(oDGUMarkup, "/name");
+  string dateTimeString = DGUStringEntity.getDateTime2String("%d/%m/%Y %H:%M:%S.%MCS");
+  
+  DGUMDDocument *document = DGUMarkupEntity.newDocument();
+  DGUMarkupEntity.addPropertyToDocument(document, "nombre", "DeliGranREST");
+  DGUMarkupEntity.addPropertyToDocument(document, "descripcion", "C Framework para aplicaciones REST");
+  DGUMarkupEntity.addPropertyToDocument(document, "fecha-hora", dateTimeString);
+  DGUMarkupEntity.addPropertyToDocument(document, "id-test", idTest);
+  DGUMarkupEntity.addPropertyToDocument(document, "name-test", nameTest);
+  
+  DGUMDNode *detalles = DGUMarkupEntity.addNodeToDocument(document, "Detalles");
+  DGUMarkupEntity.addPropertyToNode(detalles, "totalFuncionesImplementadas", "6");
+
+  DGUMDNode *funcionesArray = DGUMarkupEntity.addArrayToNode("funciones", "funcion", detalles);
+
+  DGUMDNode *itemFuncion1 = DGUMarkupEntity.newNodeItemArray();
+  DGUMarkupEntity.addPropertyToNode(itemFuncion1, "descripcion", "Configuración en base a un archivo o texto YAML/JSON");
+
+  DGUMDNode *itemFuncion2 = DGUMarkupEntity.newNodeItemArray();
+  DGUMarkupEntity.addPropertyToNode(itemFuncion2, "descripcion", "Servidor HTTP y HTTPS");
+  
+  DGUMDNode *itemFuncion3 = DGUMarkupEntity.newNodeItemArray();
+  DGUMarkupEntity.addPropertyToNode(itemFuncion3, "descripcion", "Manejo de logs");
+  
+  DGUMDNode *itemFuncion4 = DGUMarkupEntity.newNodeItemArray();
+  DGUMarkupEntity.addPropertyToNode(itemFuncion4, "descripcion", "Endpoints");
+  
+  DGUMDNode *itemFuncion5 = DGUMarkupEntity.newNodeItemArray();
+  DGUMarkupEntity.addPropertyToNode(itemFuncion5, "descripcion", "Implementación de Controlador");
+  
+  DGUMDNode *itemFuncion6 = DGUMarkupEntity.newNodeItemArray();
+  DGUMarkupEntity.addPropertyToNode(itemFuncion6, "descripcion", "Integración YAML/JSON");
+
+  DGUMarkupEntity.addNodeToNode(itemFuncion1, funcionesArray);
+  DGUMarkupEntity.addNodeToNode(itemFuncion2, funcionesArray);
+  DGUMarkupEntity.addNodeToNode(itemFuncion3, funcionesArray);
+  DGUMarkupEntity.addNodeToNode(itemFuncion4, funcionesArray);
+  DGUMarkupEntity.addNodeToNode(itemFuncion5, funcionesArray);
+  DGUMarkupEntity.addNodeToNode(itemFuncion6, funcionesArray);
+
+  DGRResponseEntity.setBody(response, DGUMarkupEntity.documentToString(document, DGUMarkupEntity.getFormats().JSON));
+  
+  DGUStringEntity.destroy(idTest);
+  DGUStringEntity.destroy(nameTest);
+  DGUStringEntity.destroy(dateTimeString);
+  DGUMarkupEntity.destroy(oDGUMarkup);
+  DGUMarkupEntity.destroyDcoument(document);
 }
 
-static EmpresasController new() {
-  EmpresasController oEmpresasController = {
-      .listarEmpresas = &listarEmpresas,
-  };
+EmpresasController *newEmpresasController() {
+  EmpresasController *oEmpresasController = DGUMemoryEntity.malloc(sizeof(EmpresasController));
+  oEmpresasController->listarEmpresas = &listarEmpresas;
 
   return oEmpresasController;
 }
 
-struct EmpresasControllerEntity EmpresasControllerEntity = {.new = &new};
+struct EmpresasControllerEntity EmpresasControllerEntity = {
+  .new = &newEmpresasController,
+  .setDGULog = &setDGULogEmpresasController
+};
+
 ```
 
 Consola o archivo el log:
