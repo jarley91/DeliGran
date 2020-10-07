@@ -10,9 +10,9 @@ DeliGran se basa y usa lo siguiente:
 - [hashdict.c](https://github.com/exebook/hashdict.c)
 - [ulfius](https://github.com/babelouest/ulfius)
 
-Cada implementación siempre está hecha simple y sencilla dentro de un ecosistema puro en **C**, esto con el fin de que sea un producto fácil de implementar, pero sin perder la solidez y robustez que brinda el **C**
+Cada implementación siempre está hecha simple y sencilla dentro de un ecosistema puro en **C**, esto con el fin de que sea un producto fácil de implementar, pero sin perder la solidez y robustez que brinda **C**
 
-En este repositorio iré publicando los binarios con el fin de que las personas interesadas puedan ir haciendo sus pruebas.
+En este repositorio iré publicando los binarios y librerías con el fin de que las personas interesadas puedan ir haciendo sus pruebas.
 
 ## Lo implementado:
 - Configuración en base a un archivo o texto YAML/JSON
