@@ -1,6 +1,7 @@
 #include "include/DefaultController.h"
 
-  #include "../../../DeliGranUtils/lib/entities/DGUMemory.h"
+#include "../../../DeliGranUtils/lib/entities/DGUMemory.h"
+#include "../../../DeliGranUtils/lib/entities/DGUMarkup.h"
 
 struct DefaultControllerPrivate {
   DGULog *logger;
