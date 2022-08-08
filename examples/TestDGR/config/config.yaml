@@ -20,9 +20,9 @@ deligran-rest:
     name: 
     version: 
     description: 
-      Description for app REST
+      Description for TestDGR
     # Replace base path
-    custom-name: custum-name-base-path
+    custom-name: testdgr
 deligran-utils-log: 
   config: 
     # CONSOLE, FILE or CONSOLE_AND_FILE

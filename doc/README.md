@@ -1,0 +1,1 @@
+Con lo ya avanzado iré publicando la documentación lo más pronto posible ya que dedico parte de mi tiempo libre a este proyecto
