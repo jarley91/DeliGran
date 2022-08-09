@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "DeliGranWS",
-    "description": "DeliGranWS C web application whit DeliGranREST C Framework ",
-    "version": "1.0.0"
+    "title": "Sample API",
+    "description": "Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.",
+    "version": "0.1.9"
   },
   "servers": [
     {
@@ -33,6 +33,26 @@
           "name": {
             "type": "string",
             "example": "Arthur Dent"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Vargas Haya"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "Enterprise": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 4
+          },
+          "name": {
+            "type": "string"
           }
         },
         "required": [
