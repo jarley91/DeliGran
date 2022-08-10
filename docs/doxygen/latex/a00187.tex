@@ -1,0 +1,454 @@
+\hypertarget{a00187}{}\doxysection{DGUString\+Entity Struct Reference}
+\label{a00187}\index{DGUStringEntity@{DGUStringEntity}}
+
+
+String functions.  
+
+
+
+
+{\ttfamily \#include $<$DGUString.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_a2becd0118fe3eae963c5a82e415745a7}{new}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)
+\begin{DoxyCompactList}\small\item\em New string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_a361d583b08d3d41150ebf1d9dac16d81}{new\+Empty}} )(void)
+\begin{DoxyCompactList}\small\item\em New string empty. \end{DoxyCompactList}\item 
+void($\ast$ \mbox{\hyperlink{a00187_aaf8ee3747abf146df7af7749f8d56ad3}{destroy}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} $\ast$string\+To\+Destroy)
+\begin{DoxyCompactList}\small\item\em Destroy string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_ac39d1564f784e4419d3eb24f9087aa79}{trim}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)
+\begin{DoxyCompactList}\small\item\em Trim string. \end{DoxyCompactList}\item 
+int($\ast$ \mbox{\hyperlink{a00187_a493a0878cf8327ccfd3d9a8f9d9922a1}{length}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)
+\begin{DoxyCompactList}\small\item\em Length string. \end{DoxyCompactList}\item 
+bool($\ast$ \mbox{\hyperlink{a00187_af4075a5a3b5425be38003ad2e22b763b}{is\+Empty}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)
+\begin{DoxyCompactList}\small\item\em Is empty string. \end{DoxyCompactList}\item 
+int($\ast$ \mbox{\hyperlink{a00187_a8862c482df865aa6a225348ba4a87c07}{to\+Integer}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)
+\begin{DoxyCompactList}\small\item\em String to integer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_a3bb6d61ed19343fe94868c1c82781804}{remove\+Chars}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} chars\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em Remove characters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_a36b874dd512ebbf51ce7d45b7dc99d6f}{format}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} format,...)
+\begin{DoxyCompactList}\small\item\em Format string value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_af238a20bdc3df4497c43f38059765786}{concat}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string1, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string2)
+\begin{DoxyCompactList}\small\item\em Concatenate strings. \end{DoxyCompactList}\item 
+bool($\ast$ \mbox{\hyperlink{a00187_aad2e1d24524c1ac66d853ae5b3a56f79}{is\+Equals}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string1, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string2)
+\begin{DoxyCompactList}\small\item\em Compare strings. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_a27dafdcb67390b12b88cdb036790fd22}{replace}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Source, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Old, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+New)
+\begin{DoxyCompactList}\small\item\em Replace value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_ad5b3f6b13488d0624405e2ef56ab7e9f}{get\+Date\+Time\+To\+String}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} format\+Date\+Time)
+\begin{DoxyCompactList}\small\item\em String value of date and time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_ab4fcc5bfc61c109fef9a03618cd0a86e}{copy\+Length}} )(\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} source, int \mbox{\hyperlink{a00187_a493a0878cf8327ccfd3d9a8f9d9922a1}{length}})
+\begin{DoxyCompactList}\small\item\em Replace value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ \mbox{\hyperlink{a00187_aed4903c031df6a6bfc128f79907166f9}{get\+UUIDRandom}} )(void)
+\begin{DoxyCompactList}\small\item\em Random uuid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+String functions. 
+
+Entity for string functions 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{a00187_af238a20bdc3df4497c43f38059765786}\label{a00187_af238a20bdc3df4497c43f38059765786}} 
+\index{DGUStringEntity@{DGUStringEntity}!concat@{concat}}
+\index{concat@{concat}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{concat}{concat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::concat) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string1, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string2)}
+
+
+
+Concatenate strings. 
+
+Concatenate two strings
+
+string new\+Value = \mbox{\hyperlink{a00187_af238a20bdc3df4497c43f38059765786}{DGUString\+Entity.\+concat}}(\char`\"{}\+Hola\char`\"{}, \char`\"{}mundo\char`\"{}); ~\newline
+ DGUString\+Entity.\+destroy(\&new\+Value);
+
+
+\begin{DoxyParams}{Parameters}
+{\em string1} & String value one \\
+\hline
+{\em string2} & String value two\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New string concatenated
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_ab4fcc5bfc61c109fef9a03618cd0a86e}\label{a00187_ab4fcc5bfc61c109fef9a03618cd0a86e}} 
+\index{DGUStringEntity@{DGUStringEntity}!copyLength@{copyLength}}
+\index{copyLength@{copyLength}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{copyLength}{copyLength}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::copy\+Length) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} source, int \mbox{\hyperlink{a00187_a493a0878cf8327ccfd3d9a8f9d9922a1}{length}})}
+
+
+
+Replace value. 
+
+Copies the string value with the specified length, from the start of the string
+
+string new\+Value = \mbox{\hyperlink{a00187_ab4fcc5bfc61c109fef9a03618cd0a86e}{DGUString\+Entity.\+copy\+Length}}(\char`\"{}\+Hola Mundo\char`\"{}, 4); ~\newline
+ DGUString\+Entity.\+destroy(\&new\+Value);
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & String source \\
+\hline
+{\em length} & Length to copy\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New value of string
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_aaf8ee3747abf146df7af7749f8d56ad3}\label{a00187_aaf8ee3747abf146df7af7749f8d56ad3}} 
+\index{DGUStringEntity@{DGUStringEntity}!destroy@{destroy}}
+\index{destroy@{destroy}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{destroy}{destroy}}
+{\footnotesize\ttfamily void($\ast$ DGUString\+Entity\+::destroy) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} $\ast$string\+To\+Destroy)}
+
+
+
+Destroy string. 
+
+Destroy a string
+
+Example\+: 
+
+string new\+String = \mbox{\hyperlink{a00187_a2becd0118fe3eae963c5a82e415745a7}{DGUString\+Entity.\+new}}(\char`\"{}\+String value\char`\"{}); 
+
+DGUString\+Entity.\+destroy(\&new\+String);
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+To\+Destroy} & String to destroy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{a00187_a36b874dd512ebbf51ce7d45b7dc99d6f}\label{a00187_a36b874dd512ebbf51ce7d45b7dc99d6f}} 
+\index{DGUStringEntity@{DGUStringEntity}!format@{format}}
+\index{format@{format}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::format) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} format,...)}
+
+
+
+Format string value. 
+
+Format string
+
+string new\+Value = \mbox{\hyperlink{a00187_a36b874dd512ebbf51ce7d45b7dc99d6f}{DGUString\+Entity.\+format}}(\char`\"{}¡\%s \%s!\char`\"{}, \char`\"{}\+Hola\char`\"{}, \char`\"{}mundo\char`\"{}); ~\newline
+ DGUString\+Entity.\+destroy(\&new\+Value);
+
+\begin{DoxySeeAlso}{See also}
+\href{https://devdocs.io/c/io/fprintf}{\texttt{ https\+://devdocs.\+io/c/io/fprintf}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & String value with format \\
+\hline
+{\em ...} & Comma separated values\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New string with format an values
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_ad5b3f6b13488d0624405e2ef56ab7e9f}\label{a00187_ad5b3f6b13488d0624405e2ef56ab7e9f}} 
+\index{DGUStringEntity@{DGUStringEntity}!getDateTimeToString@{getDateTimeToString}}
+\index{getDateTimeToString@{getDateTimeToString}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{getDateTimeToString}{getDateTimeToString}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::get\+Date\+Time\+To\+String) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} format\+Date\+Time)}
+
+
+
+String value of date and time. 
+
+Get string date and time Format sys/time with strftime, was added MCS = Microseconds and MLS = Milliseconds
+
+string new\+Value = \mbox{\hyperlink{a00187_ad5b3f6b13488d0624405e2ef56ab7e9f}{DGUString\+Entity.\+get\+Date\+Time\+To\+String}}(\char`\"{}\%d/\%m/\%\+Y \%\+H\+:\%\+M\+:\%\+S.\%\+MCS\char`\"{}); ~\newline
+ DGUString\+Entity.\+destroy(\&new\+Value);
+
+
+\begin{DoxyParams}{Parameters}
+{\em format\+Date\+Time} & Format of date and time\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New value of date and time as string
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{https://devdocs.io/c/chrono/strftime}{\texttt{ https\+://devdocs.\+io/c/chrono/strftime}}
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_aed4903c031df6a6bfc128f79907166f9}\label{a00187_aed4903c031df6a6bfc128f79907166f9}} 
+\index{DGUStringEntity@{DGUStringEntity}!getUUIDRandom@{getUUIDRandom}}
+\index{getUUIDRandom@{getUUIDRandom}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{getUUIDRandom}{getUUIDRandom}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::get\+UUIDRandom) (void)}
+
+
+
+Random uuid. 
+
+Get a random uuid string value
+
+string new\+Value = \mbox{\hyperlink{a00187_aed4903c031df6a6bfc128f79907166f9}{DGUString\+Entity.\+get\+UUIDRandom()}}; ~\newline
+ DGUString\+Entity.\+destroy(\&new\+Value);
+
+\begin{DoxyReturn}{Returns}
+uuid string value
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_af4075a5a3b5425be38003ad2e22b763b}\label{a00187_af4075a5a3b5425be38003ad2e22b763b}} 
+\index{DGUStringEntity@{DGUStringEntity}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{isEmpty}{isEmpty}}
+{\footnotesize\ttfamily bool($\ast$ DGUString\+Entity\+::is\+Empty) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)}
+
+
+
+Is empty string. 
+
+Check if a string is empty
+
+Example\+: 
+
+bool is\+Empty = DGUString\+Entity.\+is\+Empty(string\+Value); ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Value} & String to validate if is empty\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{a00187_aad2e1d24524c1ac66d853ae5b3a56f79}\label{a00187_aad2e1d24524c1ac66d853ae5b3a56f79}} 
+\index{DGUStringEntity@{DGUStringEntity}!isEquals@{isEquals}}
+\index{isEquals@{isEquals}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{isEquals}{isEquals}}
+{\footnotesize\ttfamily bool($\ast$ DGUString\+Entity\+::is\+Equals) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string1, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string2)}
+
+
+
+Compare strings. 
+
+Compare two strings
+
+bool is\+Equal = DGUString\+Entity.\+conpare(\char`\"{}\+Hola\char`\"{}, \char`\"{}hola\char`\"{}); ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em string1} & String value one \\
+\hline
+{\em string2} & String value two\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{a00187_a493a0878cf8327ccfd3d9a8f9d9922a1}\label{a00187_a493a0878cf8327ccfd3d9a8f9d9922a1}} 
+\index{DGUStringEntity@{DGUStringEntity}!length@{length}}
+\index{length@{length}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily int($\ast$ DGUString\+Entity\+::length) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)}
+
+
+
+Length string. 
+
+Length a string
+
+Example\+: 
+
+string new\+String = \mbox{\hyperlink{a00187_a2becd0118fe3eae963c5a82e415745a7}{DGUString\+Entity.\+new}}(\char`\"{}\+String value\char`\"{}); ~\newline
+ int length = DGUString\+Entity.\+length(new\+String); 
+
+DGUString\+Entity.\+destroy(\&new\+String);
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Value} & String to get its length\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length of a string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{a00187_a2becd0118fe3eae963c5a82e415745a7}\label{a00187_a2becd0118fe3eae963c5a82e415745a7}} 
+\index{DGUStringEntity@{DGUStringEntity}!new@{new}}
+\index{new@{new}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{new}{new}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::new) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)}
+
+
+
+New string. 
+
+Create a new string
+
+Example\+: 
+
+string new\+String = \mbox{\hyperlink{a00187_a2becd0118fe3eae963c5a82e415745a7}{DGUString\+Entity.\+new}}(\char`\"{}\char`\"{}); 
+
+string new\+String = \mbox{\hyperlink{a00187_a2becd0118fe3eae963c5a82e415745a7}{DGUString\+Entity.\+new}}(\char`\"{}\+String value\char`\"{});
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Value} & String value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New string
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_a361d583b08d3d41150ebf1d9dac16d81}\label{a00187_a361d583b08d3d41150ebf1d9dac16d81}} 
+\index{DGUStringEntity@{DGUStringEntity}!newEmpty@{newEmpty}}
+\index{newEmpty@{newEmpty}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{newEmpty}{newEmpty}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::new\+Empty) (void)}
+
+
+
+New string empty. 
+
+Create a new string empty
+
+Example\+: 
+
+string new\+String = \mbox{\hyperlink{a00187_a361d583b08d3d41150ebf1d9dac16d81}{DGUString\+Entity.\+new\+Empty()}};
+
+\begin{DoxyReturn}{Returns}
+New string with empty value
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_a3bb6d61ed19343fe94868c1c82781804}\label{a00187_a3bb6d61ed19343fe94868c1c82781804}} 
+\index{DGUStringEntity@{DGUStringEntity}!removeChars@{removeChars}}
+\index{removeChars@{removeChars}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{removeChars}{removeChars}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::remove\+Chars) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} chars\+To\+Remove)}
+
+
+
+Remove characters. 
+
+Remove characters from a string
+
+string new\+Value = \mbox{\hyperlink{a00187_a3bb6d61ed19343fe94868c1c82781804}{DGUString\+Entity.\+remove\+Chars}}(\char`\"{}s String value Ss\char`\"{}, \char`\"{}s\+S\char`\"{}); ~\newline
+ DGUString\+Entity.\+destroy(\&new\+Value);
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Value} & String value \\
+\hline
+{\em chars\+To\+Remove} & Chars\+To\+Remove to remove\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New string without the characters indicated in the parameter chars\+To\+Remove
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_a27dafdcb67390b12b88cdb036790fd22}\label{a00187_a27dafdcb67390b12b88cdb036790fd22}} 
+\index{DGUStringEntity@{DGUStringEntity}!replace@{replace}}
+\index{replace@{replace}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{replace}{replace}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::replace) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Source, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Old, \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+New)}
+
+
+
+Replace value. 
+
+Replace a value in a string
+
+string new\+Value = \mbox{\hyperlink{a00187_a27dafdcb67390b12b88cdb036790fd22}{DGUString\+Entity.\+replace}}(\char`\"{}-\/-\/\+Hola Mundo-\/-\/\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}); ~\newline
+ DGUString\+Entity.\+destroy(\&new\+Value);
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Source} & String source \\
+\hline
+{\em string\+Old} & String with old value \\
+\hline
+{\em string\+New} & String with new value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New value of string
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+\mbox{\Hypertarget{a00187_a8862c482df865aa6a225348ba4a87c07}\label{a00187_a8862c482df865aa6a225348ba4a87c07}} 
+\index{DGUStringEntity@{DGUStringEntity}!toInteger@{toInteger}}
+\index{toInteger@{toInteger}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{toInteger}{toInteger}}
+{\footnotesize\ttfamily int($\ast$ DGUString\+Entity\+::to\+Integer) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)}
+
+
+
+String to integer. 
+
+Convert a string to integer
+
+Example\+: 
+
+int string\+To\+Integer = DGUString\+Entity.\+to\+Integer(string\+Value); ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Value} & String to convert to integer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{a00187_ac39d1564f784e4419d3eb24f9087aa79}\label{a00187_ac39d1564f784e4419d3eb24f9087aa79}} 
+\index{DGUStringEntity@{DGUStringEntity}!trim@{trim}}
+\index{trim@{trim}!DGUStringEntity@{DGUStringEntity}}
+\doxysubsubsection{\texorpdfstring{trim}{trim}}
+{\footnotesize\ttfamily \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}}($\ast$ DGUString\+Entity\+::trim) (\mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} string\+Value)}
+
+
+
+Trim string. 
+
+Trim a string, remove whitespace from both the beginning and the end of a string
+
+string trim\+Value = \mbox{\hyperlink{a00187_ac39d1564f784e4419d3eb24f9087aa79}{DGUString\+Entity.\+trim}}(\char`\"{} String value \char`\"{}); ~\newline
+ DGUString\+Entity.\+destroy(\&trim\+Value);
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Value} & String to trim\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New string with trim value
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+You should always destroy return value to avoid memory leaks 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{a00059}{DGUString.\+h}}\end{DoxyCompactItemize}

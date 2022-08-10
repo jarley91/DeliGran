@@ -1,0 +1,35 @@
+\hypertarget{a00044_source}{}\doxysection{DGRRequest.\+h}
+\label{a00044_source}\index{DGRRequest.h@{DGRRequest.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DGR\_REQUEST\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DGR\_REQUEST\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{  \#include "{}../../../DeliGranUtils/lib/entities/DGUHashTable.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }DGRRequest DGRRequest;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13   \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{a00151}{DGRRequestEntity}} \{}
+\DoxyCodeLine{14     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getIdRequest)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{15     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getHttpVersion)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{16     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getHttpMethod)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{17     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getUrl)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{18     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getUrlPath)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{unsigned} short (*getNetworkType)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{20     DGUHashTable *(*getParameters)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{21     DGUHashTable *(*getHeaders)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{22     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getBody)(DGRRequest *oDGRRequest);}
+\DoxyCodeLine{23   \} \mbox{\hyperlink{a00151}{DGRRequestEntity}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{26 \}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DGR\_REQUEST\_H}}
+
+\end{DoxyCode}

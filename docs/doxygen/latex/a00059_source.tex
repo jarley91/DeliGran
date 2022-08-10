@@ -1,0 +1,59 @@
+\hypertarget{a00059_source}{}\doxysection{DGUString.\+h}
+\label{a00059_source}\index{DGUString.h@{DGUString.h}}
+\mbox{\hyperlink{a00059}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef DGU\_STRING\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define DGU\_STRING\_H}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{16 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{  \#include <stdbool.h>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{26   \textcolor{keyword}{typedef} \textcolor{keywordtype}{char} *\mbox{\hyperlink{a00059_ad69abac3df4532879db9642c95f5ef6f}{sds}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{32   \textcolor{keyword}{typedef} \mbox{\hyperlink{a00059_ad69abac3df4532879db9642c95f5ef6f}{sds}} \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{40   \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{a00187}{DGUStringEntity}} \{}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{58     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\textcolor{keyword}{new})(\textcolor{keywordtype}{string} stringValue);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{73     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_a361d583b08d3d41150ebf1d9dac16d81}{newEmpty}})(void);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{87     void (*\mbox{\hyperlink{a00187_aaf8ee3747abf146df7af7749f8d56ad3}{destroy}})(\textcolor{keywordtype}{string} *stringToDestroy);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{104     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_ac39d1564f784e4419d3eb24f9087aa79}{trim}})(\textcolor{keywordtype}{string} stringValue);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{121     int (*\mbox{\hyperlink{a00187_a493a0878cf8327ccfd3d9a8f9d9922a1}{length}})(\textcolor{keywordtype}{string} stringValue);}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{136     bool (*\mbox{\hyperlink{a00187_af4075a5a3b5425be38003ad2e22b763b}{isEmpty}})(\textcolor{keywordtype}{string} stringValue);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{151     int (*\mbox{\hyperlink{a00187_a8862c482df865aa6a225348ba4a87c07}{toInteger}})(\textcolor{keywordtype}{string} stringValue);}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{169     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_a3bb6d61ed19343fe94868c1c82781804}{removeChars}})(\textcolor{keywordtype}{string} stringValue, \textcolor{keywordtype}{string} charsToRemove);}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{188     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_a36b874dd512ebbf51ce7d45b7dc99d6f}{format}})(\textcolor{keywordtype}{string} \mbox{\hyperlink{a00187_a36b874dd512ebbf51ce7d45b7dc99d6f}{format}}, ...);}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{206     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_af238a20bdc3df4497c43f38059765786}{concat}})(\textcolor{keywordtype}{string} string1, \textcolor{keywordtype}{string} string2);}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{221     bool (*\mbox{\hyperlink{a00187_aad2e1d24524c1ac66d853ae5b3a56f79}{isEquals}})(\textcolor{keywordtype}{string} string1, \textcolor{keywordtype}{string} string2);}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{240     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_a27dafdcb67390b12b88cdb036790fd22}{replace}})(\textcolor{keywordtype}{string} stringSource, \textcolor{keywordtype}{string} stringOld, \textcolor{keywordtype}{string} stringNew);}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{260     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_ad5b3f6b13488d0624405e2ef56ab7e9f}{getDateTimeToString}})(\textcolor{keywordtype}{string} formatDateTime);}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{278     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_ab4fcc5bfc61c109fef9a03618cd0a86e}{copyLength}})(\textcolor{keywordtype}{string} source, \textcolor{keywordtype}{int} \mbox{\hyperlink{a00187_a493a0878cf8327ccfd3d9a8f9d9922a1}{length}});}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{293     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*\mbox{\hyperlink{a00187_aed4903c031df6a6bfc128f79907166f9}{getUUIDRandom}})(void);}
+\DoxyCodeLine{294   \} \mbox{\hyperlink{a00187}{DGUStringEntity}};}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{297 \}}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DGU\_STRING\_H}}
+
+\end{DoxyCode}

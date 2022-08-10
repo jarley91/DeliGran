@@ -1,0 +1,386 @@
+\hypertarget{a00041_source}{}\doxysection{DGRHttp.\+h}
+\label{a00041_source}\index{DGRHttp.h@{DGRHttp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DGR\_HTTP\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DGR\_HTTP\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{  \#include "{}../../../DeliGranUtils/lib/entities/DGUString.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{  \#include "{}../../../DeliGranUtils/lib/entities/DGUHashTable.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00103}{DGRHttpVersions}} \{}
+\DoxyCodeLine{13     \textcolor{keywordtype}{string} VERSION\_1\_0;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{string} VERSION\_1\_1;}
+\DoxyCodeLine{15   \} \mbox{\hyperlink{a00103}{DGRHttpVersions}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00107}{DGRHResponsesCodes}} \{}
+\DoxyCodeLine{18     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} CONTINUE;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} SWITCHING\_PROTOCOLS;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} PROCESSING;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} EARLY\_HINTS;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} OK;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} CREATED;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ACCEPTED;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NON\_AUTHORITATIVE\_INFORMATION;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NO\_CONTENT;}
+\DoxyCodeLine{27     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} RESET\_CONTENT;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} PARTIAL\_CONTENT;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} MULTI\_STATUS;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ALREADY\_REPORTED;}
+\DoxyCodeLine{31     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} IM\_USED;}
+\DoxyCodeLine{32     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} MULTIPLE\_CHOICES;}
+\DoxyCodeLine{33     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} MOVED\_PERMANENTLY;}
+\DoxyCodeLine{34     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} FOUND;}
+\DoxyCodeLine{35     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} SEE\_OTHER;}
+\DoxyCodeLine{36     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NOT\_MODIFIED;}
+\DoxyCodeLine{37     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} USE\_PROXY;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} SWITCH\_PROXY;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} TEMPORARY\_REDIRECT;}
+\DoxyCodeLine{40     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} PERMANENT\_REDIRECT;}
+\DoxyCodeLine{41     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} BAD\_REQUEST;}
+\DoxyCodeLine{42     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} UNAUTHORIZED;}
+\DoxyCodeLine{43     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} PAYMENT\_REQUIRED;}
+\DoxyCodeLine{44     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} FORBIDDEN;}
+\DoxyCodeLine{45     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NOT\_FOUND;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NOT\_ALLOWED;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NOT\_ACCEPTABLE;}
+\DoxyCodeLine{48     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} PROXY\_AUTHENTICATION\_REQUIRED;}
+\DoxyCodeLine{49     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} REQUEST\_TIMEOUT;}
+\DoxyCodeLine{50     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} CONFLICT;}
+\DoxyCodeLine{51     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GONE;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} LENGTH\_REQUIRED;}
+\DoxyCodeLine{53     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} PRECONDITION\_FAILED;}
+\DoxyCodeLine{54     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} HTTP\_CONTENT\_TOO\_LARGE;}
+\DoxyCodeLine{55     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} URI\_TOO\_LONG;}
+\DoxyCodeLine{56     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} UNSUPPORTED\_MEDIA\_TYPE;}
+\DoxyCodeLine{57     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} RANGE\_NOT\_SATISFIABLE;}
+\DoxyCodeLine{58     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} EXPECTATION\_FAILED;}
+\DoxyCodeLine{59     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} MISDIRECTED\_REQUEST;}
+\DoxyCodeLine{60     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} UNPROCESSABLE\_ENTITY;}
+\DoxyCodeLine{61     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} LOCKED;}
+\DoxyCodeLine{62     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} FAILED\_DEPENDENCY;}
+\DoxyCodeLine{63     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} TOO\_EARLY;}
+\DoxyCodeLine{64     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} UPGRADE\_REQUIRED;}
+\DoxyCodeLine{65     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} PRECONDITION\_REQUIRED;}
+\DoxyCodeLine{66     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} TOO\_MANY\_REQUESTS;}
+\DoxyCodeLine{67     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} REQUEST\_HEADER\_FIELDS\_TOO\_LARGE;}
+\DoxyCodeLine{68     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} UNAVAILABLE\_FOR\_LEGAL\_REASONS;}
+\DoxyCodeLine{69     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} INTERNAL\_SERVER\_ERROR;}
+\DoxyCodeLine{70     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NOT\_IMPLEMENTED;}
+\DoxyCodeLine{71     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} BAD\_GATEWAY;}
+\DoxyCodeLine{72     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} SERVICE\_UNAVAILABLE;}
+\DoxyCodeLine{73     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GATEWAY\_TIMEOUT;}
+\DoxyCodeLine{74     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} VERSION\_NOT\_SUPPORTED;}
+\DoxyCodeLine{75     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} VARIANT\_ALSO\_NEGOTIATES;}
+\DoxyCodeLine{76     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} INSUFFICIENT\_STORAGE;}
+\DoxyCodeLine{77     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} LOOP\_DETECTED;}
+\DoxyCodeLine{78     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NOT\_EXTENDED;}
+\DoxyCodeLine{79     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NETWORK\_AUTHENTICATION\_REQUIRED;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} RETRY\_WITH;}
+\DoxyCodeLine{82     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} BLOCKED\_BY\_WINDOWS\_PARENTAL\_CONTROLS;}
+\DoxyCodeLine{83     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} BANDWIDTH\_LIMIT\_EXCEEDED;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{comment}{/*unsigned int METHOD\_NOT\_ACCEPTABLE;}}
+\DoxyCodeLine{86 \textcolor{comment}{    unsigned int REQUEST\_ENTITY\_TOO\_LARGE;}}
+\DoxyCodeLine{87 \textcolor{comment}{    unsigned int REQUEST\_URI\_TOO\_LONG;}}
+\DoxyCodeLine{88 \textcolor{comment}{    unsigned int REQUESTED\_RANGE\_NOT\_SATISFIABLE;}}
+\DoxyCodeLine{89 \textcolor{comment}{    unsigned int UNORDERED\_COLLECTION;}}
+\DoxyCodeLine{90 \textcolor{comment}{    unsigned int NO\_RESPONSE;*/}}
+\DoxyCodeLine{91   \} \mbox{\hyperlink{a00107}{DGRHResponsesCodes}};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00111}{DGRHttpHeaders}} \{}
+\DoxyCodeLine{94     \textcolor{keywordtype}{string} ACCEPT;}
+\DoxyCodeLine{95     \textcolor{keywordtype}{string} ACCEPT\_CHARSET;}
+\DoxyCodeLine{96     \textcolor{keywordtype}{string} ACCEPT\_ENCODING;}
+\DoxyCodeLine{97     \textcolor{keywordtype}{string} ACCEPT\_LANGUAGE;}
+\DoxyCodeLine{98     \textcolor{keywordtype}{string} ACCEPT\_RANGES;}
+\DoxyCodeLine{99     \textcolor{keywordtype}{string} AGE;}
+\DoxyCodeLine{100     \textcolor{keywordtype}{string} ALLOW;}
+\DoxyCodeLine{101     \textcolor{keywordtype}{string} AUTHORIZATION;}
+\DoxyCodeLine{102     \textcolor{keywordtype}{string} CACHE\_CONTROL;}
+\DoxyCodeLine{103     \textcolor{keywordtype}{string} CLOSE;}
+\DoxyCodeLine{104     \textcolor{keywordtype}{string} CONNECTION;}
+\DoxyCodeLine{105     \textcolor{keywordtype}{string} CONTENT\_ENCODING;}
+\DoxyCodeLine{106     \textcolor{keywordtype}{string} CONTENT\_LANGUAGE;}
+\DoxyCodeLine{107     \textcolor{keywordtype}{string} CONTENT\_LENGTH;}
+\DoxyCodeLine{108     \textcolor{keywordtype}{string} CONTENT\_LOCATION;}
+\DoxyCodeLine{109     \textcolor{keywordtype}{string} CONTENT\_RANGE;}
+\DoxyCodeLine{110     \textcolor{keywordtype}{string} CONTENT\_TYPE;}
+\DoxyCodeLine{111     \textcolor{keywordtype}{string} DATE;}
+\DoxyCodeLine{112     \textcolor{keywordtype}{string} ETAG;}
+\DoxyCodeLine{113     \textcolor{keywordtype}{string} EXPECT;}
+\DoxyCodeLine{114     \textcolor{keywordtype}{string} EXPIRES;}
+\DoxyCodeLine{115     \textcolor{keywordtype}{string} FROM;}
+\DoxyCodeLine{116     \textcolor{keywordtype}{string} HOST;}
+\DoxyCodeLine{117     \textcolor{keywordtype}{string} IF\_MATCH;}
+\DoxyCodeLine{118     \textcolor{keywordtype}{string} IF\_MODIFIED\_SINCE;}
+\DoxyCodeLine{119     \textcolor{keywordtype}{string} IF\_NONE\_MATCH;}
+\DoxyCodeLine{120     \textcolor{keywordtype}{string} IF\_RANGE;}
+\DoxyCodeLine{121     \textcolor{keywordtype}{string} IF\_UNMODIFIED\_SINCE;}
+\DoxyCodeLine{122     \textcolor{keywordtype}{string} LAST\_MODIFIED;}
+\DoxyCodeLine{123     \textcolor{keywordtype}{string} LOCATION;}
+\DoxyCodeLine{124     \textcolor{keywordtype}{string} MAX\_FORWARDS;}
+\DoxyCodeLine{125     \textcolor{keywordtype}{string} MIME\_VERSION;}
+\DoxyCodeLine{126     \textcolor{keywordtype}{string} PRAGMA;}
+\DoxyCodeLine{127     \textcolor{keywordtype}{string} PROXY\_AUTHENTICATE;}
+\DoxyCodeLine{128     \textcolor{keywordtype}{string} PROXY\_AUTHORIZATION;}
+\DoxyCodeLine{129     \textcolor{keywordtype}{string} RANGE;}
+\DoxyCodeLine{130     \textcolor{keywordtype}{string} REFERER;}
+\DoxyCodeLine{131     \textcolor{keywordtype}{string} RETRY\_AFTER;}
+\DoxyCodeLine{132     \textcolor{keywordtype}{string} SERVER;}
+\DoxyCodeLine{133     \textcolor{keywordtype}{string} TE;}
+\DoxyCodeLine{134     \textcolor{keywordtype}{string} TRAILER;}
+\DoxyCodeLine{135     \textcolor{keywordtype}{string} TRANSFER\_ENCODING;}
+\DoxyCodeLine{136     \textcolor{keywordtype}{string} UPGRADE;}
+\DoxyCodeLine{137     \textcolor{keywordtype}{string} USER\_AGENT;}
+\DoxyCodeLine{138     \textcolor{keywordtype}{string} VARY;}
+\DoxyCodeLine{139     \textcolor{keywordtype}{string} VIA;}
+\DoxyCodeLine{140     \textcolor{keywordtype}{string} WWW\_AUTHENTICATE;}
+\DoxyCodeLine{141     \textcolor{keywordtype}{string} WARNING;}
+\DoxyCodeLine{142     \textcolor{keywordtype}{string} A\_IM;}
+\DoxyCodeLine{143     \textcolor{keywordtype}{string} ACCEPT\_ADDITIONS;}
+\DoxyCodeLine{144     \textcolor{keywordtype}{string} ACCEPT\_DATETIME;}
+\DoxyCodeLine{145     \textcolor{keywordtype}{string} ACCEPT\_FEATURES;}
+\DoxyCodeLine{146     \textcolor{keywordtype}{string} ACCEPT\_PATCH;}
+\DoxyCodeLine{147     \textcolor{keywordtype}{string} ACCEPT\_POST;}
+\DoxyCodeLine{148     \textcolor{keywordtype}{string} ALPN;}
+\DoxyCodeLine{149     \textcolor{keywordtype}{string} ALT\_SVC;}
+\DoxyCodeLine{150     \textcolor{keywordtype}{string} ALT\_USED;}
+\DoxyCodeLine{151     \textcolor{keywordtype}{string} ALTERNATES;}
+\DoxyCodeLine{152     \textcolor{keywordtype}{string} APPLY\_TO\_REDIRECT\_REF;}
+\DoxyCodeLine{153     \textcolor{keywordtype}{string} AUTHENTICATION\_CONTROL;}
+\DoxyCodeLine{154     \textcolor{keywordtype}{string} AUTHENTICATION\_INFO;}
+\DoxyCodeLine{155     \textcolor{keywordtype}{string} C\_EXT;}
+\DoxyCodeLine{156     \textcolor{keywordtype}{string} C\_MAN;}
+\DoxyCodeLine{157     \textcolor{keywordtype}{string} C\_OPT;}
+\DoxyCodeLine{158     \textcolor{keywordtype}{string} C\_PEP;}
+\DoxyCodeLine{159     \textcolor{keywordtype}{string} C\_PEP\_INFO;}
+\DoxyCodeLine{160     \textcolor{keywordtype}{string} CAL\_MANAGED\_ID;}
+\DoxyCodeLine{161     \textcolor{keywordtype}{string} CALDAV\_TIMEZONES;}
+\DoxyCodeLine{162     \textcolor{keywordtype}{string} CDN\_LOOP;}
+\DoxyCodeLine{163     \textcolor{keywordtype}{string} CONTENT\_BASE;}
+\DoxyCodeLine{164     \textcolor{keywordtype}{string} CONTENT\_DISPOSITION;}
+\DoxyCodeLine{165     \textcolor{keywordtype}{string} CONTENT\_ID;}
+\DoxyCodeLine{166     \textcolor{keywordtype}{string} CONTENT\_MD5;}
+\DoxyCodeLine{167     \textcolor{keywordtype}{string} CONTENT\_SCRIPT\_TYPE;}
+\DoxyCodeLine{168     \textcolor{keywordtype}{string} CONTENT\_STYLE\_TYPE;}
+\DoxyCodeLine{169     \textcolor{keywordtype}{string} CONTENT\_VERSION;}
+\DoxyCodeLine{170     \textcolor{keywordtype}{string} COOKIE;}
+\DoxyCodeLine{171     \textcolor{keywordtype}{string} COOKIE2;}
+\DoxyCodeLine{172     \textcolor{keywordtype}{string} DASL;}
+\DoxyCodeLine{173     \textcolor{keywordtype}{string} DAV;}
+\DoxyCodeLine{174     \textcolor{keywordtype}{string} DEFAULT\_STYLE;}
+\DoxyCodeLine{175     \textcolor{keywordtype}{string} DELTA\_BASE;}
+\DoxyCodeLine{176     \textcolor{keywordtype}{string} DEPTH;}
+\DoxyCodeLine{177     \textcolor{keywordtype}{string} DERIVED\_FROM;}
+\DoxyCodeLine{178     \textcolor{keywordtype}{string} DESTINATION;}
+\DoxyCodeLine{179     \textcolor{keywordtype}{string} DIFFERENTIAL\_ID;}
+\DoxyCodeLine{180     \textcolor{keywordtype}{string} DIGEST;}
+\DoxyCodeLine{181     \textcolor{keywordtype}{string} EARLY\_DATA;}
+\DoxyCodeLine{182     \textcolor{keywordtype}{string} EXPECT\_CT;}
+\DoxyCodeLine{183     \textcolor{keywordtype}{string} EXT;}
+\DoxyCodeLine{184     \textcolor{keywordtype}{string} FORWARDED;}
+\DoxyCodeLine{185     \textcolor{keywordtype}{string} GETPROFILE;}
+\DoxyCodeLine{186     \textcolor{keywordtype}{string} HOBAREG;}
+\DoxyCodeLine{187     \textcolor{keywordtype}{string} HTTP2\_SETTINGS;}
+\DoxyCodeLine{188     \textcolor{keywordtype}{string} IM;}
+\DoxyCodeLine{189     \textcolor{keywordtype}{string} IF;}
+\DoxyCodeLine{190     \textcolor{keywordtype}{string} IF\_SCHEDULE\_TAG\_MATCH;}
+\DoxyCodeLine{191     \textcolor{keywordtype}{string} INCLUDE\_REFERRED\_TOKEN\_BINDING\_ID;}
+\DoxyCodeLine{192     \textcolor{keywordtype}{string} KEEP\_ALIVE;}
+\DoxyCodeLine{193     \textcolor{keywordtype}{string} LABEL;}
+\DoxyCodeLine{194     \textcolor{keywordtype}{string} LINK;}
+\DoxyCodeLine{195     \textcolor{keywordtype}{string} LOCK\_TOKEN;}
+\DoxyCodeLine{196     \textcolor{keywordtype}{string} MAN;}
+\DoxyCodeLine{197     \textcolor{keywordtype}{string} MEMENTO\_DATETIME;}
+\DoxyCodeLine{198     \textcolor{keywordtype}{string} METER;}
+\DoxyCodeLine{199     \textcolor{keywordtype}{string} NEGOTIATE;}
+\DoxyCodeLine{200     \textcolor{keywordtype}{string} OPT;}
+\DoxyCodeLine{201     \textcolor{keywordtype}{string} OPTIONAL\_WWW\_AUTHENTICATE;}
+\DoxyCodeLine{202     \textcolor{keywordtype}{string} ORDERING\_TYPE;}
+\DoxyCodeLine{203     \textcolor{keywordtype}{string} ORIGIN;}
+\DoxyCodeLine{204     \textcolor{keywordtype}{string} OSCORE;}
+\DoxyCodeLine{205     \textcolor{keywordtype}{string} OVERWRITE;}
+\DoxyCodeLine{206     \textcolor{keywordtype}{string} P3P;}
+\DoxyCodeLine{207     \textcolor{keywordtype}{string} PEP;}
+\DoxyCodeLine{208     \textcolor{keywordtype}{string} PICS\_LABEL;}
+\DoxyCodeLine{209     \textcolor{keywordtype}{string} PEP\_INFO;}
+\DoxyCodeLine{210     \textcolor{keywordtype}{string} POSITION;}
+\DoxyCodeLine{211     \textcolor{keywordtype}{string} PREFER;}
+\DoxyCodeLine{212     \textcolor{keywordtype}{string} PREFERENCE\_APPLIED;}
+\DoxyCodeLine{213     \textcolor{keywordtype}{string} PROFILEOBJECT;}
+\DoxyCodeLine{214     \textcolor{keywordtype}{string} PROTOCOL;}
+\DoxyCodeLine{215     \textcolor{keywordtype}{string} PROTOCOL\_INFO;}
+\DoxyCodeLine{216     \textcolor{keywordtype}{string} PROTOCOL\_QUERY;}
+\DoxyCodeLine{217     \textcolor{keywordtype}{string} PROTOCOL\_REQUEST;}
+\DoxyCodeLine{218     \textcolor{keywordtype}{string} PROXY\_AUTHENTICATION\_INFO;}
+\DoxyCodeLine{219     \textcolor{keywordtype}{string} PROXY\_FEATURES;}
+\DoxyCodeLine{220     \textcolor{keywordtype}{string} PROXY\_INSTRUCTION;}
+\DoxyCodeLine{221     \textcolor{keywordtype}{string} PUBLIC;}
+\DoxyCodeLine{222     \textcolor{keywordtype}{string} PUBLIC\_KEY\_PINS;}
+\DoxyCodeLine{223     \textcolor{keywordtype}{string} PUBLIC\_KEY\_PINS\_REPORT\_ONLY;}
+\DoxyCodeLine{224     \textcolor{keywordtype}{string} REDIRECT\_REF;}
+\DoxyCodeLine{225     \textcolor{keywordtype}{string} REPLAY\_NONCE;}
+\DoxyCodeLine{226     \textcolor{keywordtype}{string} SAFE;}
+\DoxyCodeLine{227     \textcolor{keywordtype}{string} SCHEDULE\_REPLY;}
+\DoxyCodeLine{228     \textcolor{keywordtype}{string} SCHEDULE\_TAG;}
+\DoxyCodeLine{229     \textcolor{keywordtype}{string} SEC\_TOKEN\_BINDING;}
+\DoxyCodeLine{230     \textcolor{keywordtype}{string} SEC\_WEBSOCKET\_ACCEPT;}
+\DoxyCodeLine{231     \textcolor{keywordtype}{string} SEC\_WEBSOCKET\_EXTENSIONS;}
+\DoxyCodeLine{232     \textcolor{keywordtype}{string} SEC\_WEBSOCKET\_KEY;}
+\DoxyCodeLine{233     \textcolor{keywordtype}{string} SEC\_WEBSOCKET\_PROTOCOL;}
+\DoxyCodeLine{234     \textcolor{keywordtype}{string} SEC\_WEBSOCKET\_VERSION;}
+\DoxyCodeLine{235     \textcolor{keywordtype}{string} SECURITY\_SCHEME;}
+\DoxyCodeLine{236     \textcolor{keywordtype}{string} SET\_COOKIE;}
+\DoxyCodeLine{237     \textcolor{keywordtype}{string} SET\_COOKIE2;}
+\DoxyCodeLine{238     \textcolor{keywordtype}{string} SETPROFILE;}
+\DoxyCodeLine{239     \textcolor{keywordtype}{string} SLUG;}
+\DoxyCodeLine{240     \textcolor{keywordtype}{string} SOAPACTION;}
+\DoxyCodeLine{241     \textcolor{keywordtype}{string} STATUS\_URI;}
+\DoxyCodeLine{242     \textcolor{keywordtype}{string} STRICT\_TRANSPORT\_SECURITY;}
+\DoxyCodeLine{243     \textcolor{keywordtype}{string} SUNSET;}
+\DoxyCodeLine{244     \textcolor{keywordtype}{string} SURROGATE\_CAPABILITY;}
+\DoxyCodeLine{245     \textcolor{keywordtype}{string} SURROGATE\_CONTROL;}
+\DoxyCodeLine{246     \textcolor{keywordtype}{string} TCN;}
+\DoxyCodeLine{247     \textcolor{keywordtype}{string} TIMEOUT;}
+\DoxyCodeLine{248     \textcolor{keywordtype}{string} TOPIC;}
+\DoxyCodeLine{249     \textcolor{keywordtype}{string} TTL;}
+\DoxyCodeLine{250     \textcolor{keywordtype}{string} URGENCY;}
+\DoxyCodeLine{251     \textcolor{keywordtype}{string} URI;}
+\DoxyCodeLine{252     \textcolor{keywordtype}{string} VARIANT\_VARY;}
+\DoxyCodeLine{253     \textcolor{keywordtype}{string} WANT\_DIGEST;}
+\DoxyCodeLine{254     \textcolor{keywordtype}{string} X\_FRAME\_OPTIONS;}
+\DoxyCodeLine{255     \textcolor{keywordtype}{string} ACCESS\_CONTROL\_ALLOW\_ORIGIN;}
+\DoxyCodeLine{256   \} \mbox{\hyperlink{a00111}{DGRHttpHeaders}};}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00115}{DGRHMethods}} \{}
+\DoxyCodeLine{259     \textcolor{comment}{//string CONNECT;}}
+\DoxyCodeLine{260     \textcolor{keywordtype}{string} DELETE;}
+\DoxyCodeLine{261     \textcolor{keywordtype}{string} GET;}
+\DoxyCodeLine{262     \textcolor{keywordtype}{string} HEAD;}
+\DoxyCodeLine{263     \textcolor{keywordtype}{string} OPTIONS;}
+\DoxyCodeLine{264     \textcolor{keywordtype}{string} POST;}
+\DoxyCodeLine{265     \textcolor{keywordtype}{string} PUT;}
+\DoxyCodeLine{266     \textcolor{keywordtype}{string} TRACE;}
+\DoxyCodeLine{267     \textcolor{comment}{/*string ACL;}}
+\DoxyCodeLine{268 \textcolor{comment}{    string BASELINE\_CONTROL;}}
+\DoxyCodeLine{269 \textcolor{comment}{    string BIND;}}
+\DoxyCodeLine{270 \textcolor{comment}{    string CHECKIN;}}
+\DoxyCodeLine{271 \textcolor{comment}{    string CHECKOUT;}}
+\DoxyCodeLine{272 \textcolor{comment}{    string COPY;}}
+\DoxyCodeLine{273 \textcolor{comment}{    string LABEL;}}
+\DoxyCodeLine{274 \textcolor{comment}{    string LINK;}}
+\DoxyCodeLine{275 \textcolor{comment}{    string LOCK;}}
+\DoxyCodeLine{276 \textcolor{comment}{    string MERGE;}}
+\DoxyCodeLine{277 \textcolor{comment}{    string MKACTIVITY;}}
+\DoxyCodeLine{278 \textcolor{comment}{    string MKCALENDAR;}}
+\DoxyCodeLine{279 \textcolor{comment}{    string MKCOL;}}
+\DoxyCodeLine{280 \textcolor{comment}{    string MKREDIRECTREF;}}
+\DoxyCodeLine{281 \textcolor{comment}{    string MKWORKSPACE;}}
+\DoxyCodeLine{282 \textcolor{comment}{    string MOVE;}}
+\DoxyCodeLine{283 \textcolor{comment}{    string ORDERPATCH;*/}}
+\DoxyCodeLine{284     \textcolor{keywordtype}{string} PATCH;}
+\DoxyCodeLine{285     \textcolor{comment}{/*string PRI;}}
+\DoxyCodeLine{286 \textcolor{comment}{    string PROPFIND;}}
+\DoxyCodeLine{287 \textcolor{comment}{    string PROPPATCH;}}
+\DoxyCodeLine{288 \textcolor{comment}{    string REBIND;}}
+\DoxyCodeLine{289 \textcolor{comment}{    string REPORT;}}
+\DoxyCodeLine{290 \textcolor{comment}{    string SEARCH;}}
+\DoxyCodeLine{291 \textcolor{comment}{    string UNBIND;}}
+\DoxyCodeLine{292 \textcolor{comment}{    string UNCHECKOUT;}}
+\DoxyCodeLine{293 \textcolor{comment}{    string UNLINK;}}
+\DoxyCodeLine{294 \textcolor{comment}{    string UNLOCK;}}
+\DoxyCodeLine{295 \textcolor{comment}{    string UPDATE;}}
+\DoxyCodeLine{296 \textcolor{comment}{    string UPDATEREDIRECTREF;}}
+\DoxyCodeLine{297 \textcolor{comment}{    string VERSION\_CONTROL;*/}}
+\DoxyCodeLine{298   \} \mbox{\hyperlink{a00115}{DGRHMethods}};}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00119}{DGRHMediaTypes}} \{}
+\DoxyCodeLine{301     \textcolor{keywordtype}{string} ALL;}
+\DoxyCodeLine{302     \textcolor{keywordtype}{string} APPLICATION\_ATOM\_XML;}
+\DoxyCodeLine{303     \textcolor{keywordtype}{string} APPLICATION\_CBOR;}
+\DoxyCodeLine{304     \textcolor{keywordtype}{string} APPLICATION\_FORM\_URLENCODED;}
+\DoxyCodeLine{305     \textcolor{keywordtype}{string} APPLICATION\_JSON;}
+\DoxyCodeLine{306     \textcolor{keywordtype}{string} APPLICATION\_JSON\_UTF8;}
+\DoxyCodeLine{307     \textcolor{keywordtype}{string} APPLICATION\_NDJSON;}
+\DoxyCodeLine{308     \textcolor{keywordtype}{string} APPLICATION\_OCTET\_STREAM;}
+\DoxyCodeLine{309     \textcolor{keywordtype}{string} APPLICATION\_PDF;}
+\DoxyCodeLine{310     \textcolor{keywordtype}{string} APPLICATION\_PROBLEM\_JSON;}
+\DoxyCodeLine{311     \textcolor{keywordtype}{string} APPLICATION\_PROBLEM\_JSON\_UTF8;}
+\DoxyCodeLine{312     \textcolor{keywordtype}{string} APPLICATION\_PROBLEM\_XML;}
+\DoxyCodeLine{313     \textcolor{keywordtype}{string} APPLICATION\_RSS\_XML;}
+\DoxyCodeLine{314     \textcolor{keywordtype}{string} APPLICATION\_STREAM\_JSON;}
+\DoxyCodeLine{315     \textcolor{keywordtype}{string} APPLICATION\_XHTML\_XML;}
+\DoxyCodeLine{316     \textcolor{keywordtype}{string} APPLICATION\_XML;}
+\DoxyCodeLine{317     \textcolor{keywordtype}{string} APPLICATION\_JAVASCRIPT;}
+\DoxyCodeLine{318     \textcolor{keywordtype}{string} IMAGE\_GIF;}
+\DoxyCodeLine{319     \textcolor{keywordtype}{string} IMAGE\_JPEG;}
+\DoxyCodeLine{320     \textcolor{keywordtype}{string} IMAGE\_PNG;}
+\DoxyCodeLine{321     \textcolor{keywordtype}{string} MULTIPART\_FORM\_DATA;}
+\DoxyCodeLine{322     \textcolor{keywordtype}{string} MULTIPART\_MIXED;}
+\DoxyCodeLine{323     \textcolor{keywordtype}{string} MULTIPART\_RELATED;}
+\DoxyCodeLine{324     \textcolor{keywordtype}{string} TEXT\_EVENT\_STREAM;}
+\DoxyCodeLine{325     \textcolor{keywordtype}{string} TEXT\_HTML;}
+\DoxyCodeLine{326     \textcolor{keywordtype}{string} TEXT\_Markup;}
+\DoxyCodeLine{327     \textcolor{keywordtype}{string} TEXT\_PLAIN;}
+\DoxyCodeLine{328     \textcolor{keywordtype}{string} TEXT\_XML;}
+\DoxyCodeLine{329   \} \mbox{\hyperlink{a00119}{DGRHMediaTypes}};}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00123}{DGRHHttpPostEncodings}} \{}
+\DoxyCodeLine{332     \textcolor{keywordtype}{string} POST\_ENCODING\_FORM\_URLENCODED;}
+\DoxyCodeLine{333     \textcolor{keywordtype}{string} POST\_ENCODING\_MULTIPART\_FORMDATA;}
+\DoxyCodeLine{334   \} \mbox{\hyperlink{a00123}{DGRHHttpPostEncodings}};}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00127}{DGRHNetworkTypesString}} \{}
+\DoxyCodeLine{337     \textcolor{keywordtype}{string} IPV4;}
+\DoxyCodeLine{338     \textcolor{keywordtype}{string} IPV6;}
+\DoxyCodeLine{339     \textcolor{keywordtype}{string} ALL;}
+\DoxyCodeLine{340   \} \mbox{\hyperlink{a00127}{DGRHNetworkTypesString}};}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00131}{DGRHNetworkTypesInteger}} \{}
+\DoxyCodeLine{343     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} IPV4;}
+\DoxyCodeLine{344     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} IPV6;}
+\DoxyCodeLine{345     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} ALL;}
+\DoxyCodeLine{346   \} \mbox{\hyperlink{a00131}{DGRHNetworkTypesInteger}};}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00135}{DGRHProtocols}} \{}
+\DoxyCodeLine{349     \textcolor{keywordtype}{string} HTTP;}
+\DoxyCodeLine{350     \textcolor{keywordtype}{string} HTTPS;}
+\DoxyCodeLine{351   \} \mbox{\hyperlink{a00135}{DGRHProtocols}};}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00139}{DGRHNetworkTypes}} \{}
+\DoxyCodeLine{354     \mbox{\hyperlink{a00127}{DGRHNetworkTypesString}} stringValues;}
+\DoxyCodeLine{355     \mbox{\hyperlink{a00131}{DGRHNetworkTypesInteger}} integerValues;}
+\DoxyCodeLine{356   \} \mbox{\hyperlink{a00139}{DGRHNetworkTypes}};}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{358   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00143}{DGRHttp}} \{}
+\DoxyCodeLine{359     \mbox{\hyperlink{a00111}{DGRHttpHeaders}} (*getHeaders)(void);}
+\DoxyCodeLine{360     \mbox{\hyperlink{a00115}{DGRHMethods}} (*getMethods)(void);}
+\DoxyCodeLine{361     DGUHashTable *(*getHTMethods)(void);}
+\DoxyCodeLine{362     \mbox{\hyperlink{a00107}{DGRHResponsesCodes}} (*getResponsesCodes)(void);}
+\DoxyCodeLine{363     \mbox{\hyperlink{a00119}{DGRHMediaTypes}} (*getMediaTypes)(void);}
+\DoxyCodeLine{364     \mbox{\hyperlink{a00139}{DGRHNetworkTypes}} (*getNetworkTypes)(void);}
+\DoxyCodeLine{365     \mbox{\hyperlink{a00135}{DGRHProtocols}} (*getProtocols)(void);}
+\DoxyCodeLine{366     bool (*isMethodPOSTRaw)(\textcolor{keywordtype}{string} method, \textcolor{keywordtype}{string} contentType);}
+\DoxyCodeLine{367     bool (*isMethodPOSTFile)(\textcolor{keywordtype}{string} method, \textcolor{keywordtype}{string} contentType);}
+\DoxyCodeLine{368     bool (*isMethodPOSTMultipart)(\textcolor{keywordtype}{string} method, \textcolor{keywordtype}{string} contentType);}
+\DoxyCodeLine{369     bool (*isMethodGET)(\textcolor{keywordtype}{string} method);}
+\DoxyCodeLine{370   \} \mbox{\hyperlink{a00143}{DGRHttp}};}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372   \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{a00147}{DGRHttpEntity}} \{}
+\DoxyCodeLine{373     \mbox{\hyperlink{a00143}{DGRHttp}} *(*new)(void);}
+\DoxyCodeLine{374   \} \mbox{\hyperlink{a00147}{DGRHttpEntity}};}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{377 \}}
+\DoxyCodeLine{378 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DGR\_HTTP\_H}}
+
+\end{DoxyCode}

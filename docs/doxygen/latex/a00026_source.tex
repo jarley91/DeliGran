@@ -1,0 +1,45 @@
+\hypertarget{a00026_source}{}\doxysection{DGDBController.\+h}
+\label{a00026_source}\index{DGDBController.h@{DGDBController.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DGDB\_CONTROLLER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DGDB\_CONTROLLER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{  \#include "{}../../../DeliGranUtils/lib/entities/DGUString.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{  \#include "{}DGDBQuery.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{  \#define EndParameters NULL}}
+\DoxyCodeLine{14   }
+\DoxyCodeLine{15   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00071}{DGDBDataSourceDrivers}} \{}
+\DoxyCodeLine{16     \textcolor{keywordtype}{string} PostgreSQL;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{string} MySQL;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{string} MariaDB;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{string} SQLite;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{string} Redis;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{string} MongoDB;}
+\DoxyCodeLine{22   \} \mbox{\hyperlink{a00071}{DGDBDataSourceDrivers}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }DGDBController DGDBController;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{a00075}{DGDBControllerEntity}} \{}
+\DoxyCodeLine{27     \mbox{\hyperlink{a00071}{DGDBDataSourceDrivers}} (*getDrivers)(void);}
+\DoxyCodeLine{28     DGDBQuery *(*execQuery)(DGDBController *oDGDBController, \textcolor{keywordtype}{string} nameDataSource, \textcolor{keywordtype}{string} query, ...);}
+\DoxyCodeLine{29     DGDBQuery *(*execQueryByPath)(DGDBController *oDGDBController, \textcolor{keywordtype}{string} nameDataSource, \textcolor{keywordtype}{string} queryPath, ...);}
+\DoxyCodeLine{30     void (*destroyQuery)(DGDBController *oDGDBController, DGDBQuery *oDGDBQuery);}
+\DoxyCodeLine{31     int (*getTotalColumns)(DGDBController *oDGDBController, DGDBQuery *oDGDBQuery);}
+\DoxyCodeLine{32     int (*getTotalRows)(DGDBController *oDGDBController, DGDBQuery *oDGDBQuery);}
+\DoxyCodeLine{33   \} \mbox{\hyperlink{a00075}{DGDBControllerEntity}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{36 \}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DGDB\_CONTROLLER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,38 @@
+\hypertarget{a00047_source}{}\doxysection{DGUHash\+Table.\+h}
+\label{a00047_source}\index{DGUHashTable.h@{DGUHashTable.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DGU\_HASHTABLE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DGU\_HASHTABLE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{8   }
+\DoxyCodeLine{9 \textcolor{preprocessor}{  \#include <stdbool.h>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{  \#include "{}\mbox{\hyperlink{a00059}{DGUString.h}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13   \textcolor{keyword}{typedef} void (*forEachItemFunctionDGUHashTable)(\textcolor{keywordtype}{int} index, \textcolor{keywordtype}{string} key, \textcolor{keywordtype}{void} *value, \textcolor{keywordtype}{void} *userData);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }DGUHashTable DGUHashTable;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17   \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{a00159}{DGUHashTableEntity}} \{}
+\DoxyCodeLine{18     DGUHashTable *(*new)(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} initialSize);}
+\DoxyCodeLine{19     void (*destroy)(DGUHashTable *table);}
+\DoxyCodeLine{20     void (*insert)(DGUHashTable *table, \textcolor{keywordtype}{string} key, \textcolor{keywordtype}{void} *value);}
+\DoxyCodeLine{21     void (*\textcolor{keyword}{delete})(DGUHashTable *table, \textcolor{keywordtype}{string} key);}
+\DoxyCodeLine{22     bool (*exist)(DGUHashTable *table, \textcolor{keywordtype}{string} key);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} *(*getValue)(DGUHashTable *table, \textcolor{keywordtype}{string} key);}
+\DoxyCodeLine{24     int (*getCount)(DGUHashTable *table);}
+\DoxyCodeLine{25     void (*forEach)(DGUHashTable *table, forEachItemFunctionDGUHashTable forEachFunction, \textcolor{keywordtype}{void} *userData);}
+\DoxyCodeLine{26   \} \mbox{\hyperlink{a00159}{DGUHashTableEntity}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{29 \}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DGU\_HASHTABLE\_H}}
+
+\end{DoxyCode}

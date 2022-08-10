@@ -1,0 +1,74 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+C Framework para aplicaciones REST
+
+Deli\+Gran se basa y usa lo siguiente\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://www.gnu.org/software/libmicrohttpd/}{\texttt{ GNU Libmicrohttpd}}
+\item \href{https://www.gnutls.org/}{\texttt{ The Gnu\+TLS Transport Layer Security Library}}
+\item \href{https://github.com/antirez/sds}{\texttt{ SDS -\/ Simple Dynamic Strings}}
+\item \href{https://github.com/pantoniou/libfyaml}{\texttt{ libfyaml}}
+\item \href{https://github.com/exebook/hashdict.c}{\texttt{ hashdict.\+c}}
+\item \href{https://github.com/babelouest/ulfius}{\texttt{ ulfius}}
+\end{DoxyItemize}
+
+Cada implementación siempre está hecha simple y sencilla dentro de un ecosistema puro en {\bfseries{C}}, esto con el fin de que sea un producto fácil de usar e implementar, pero sin perder la solidez y robustez que brinda {\bfseries{C}}\hypertarget{index_autotoc_md1}{}\doxysection{Lo implementado\+:}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Configuración en base a un archivo o texto YAML/\+JSON
+\item Servidor HTTP y HTTPS
+\item Logger
+\item Endpoints
+\item Implementación de Controlador
+\item Integración YAML/\+JSON
+\item Integración Open\+API
+\item Nano ORM
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{A implementar\+:}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Integración con un servidor de configuración
+\item Niveles de logs, control de archivos generados
+\item Encriptar datos sensibles
+\item OAuth 2.\+0
+\item Integración con Kubernetes
+\item Integración con REDIS
+\item Iré agregando más ...
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{Empecemos\+:}\label{index_autotoc_md3}
+Lo necesario para inciar está en la carpeta bins para Linux y mac\+OS
+
+{\bfseries{Deli\+Gran\+Cli}}
+
+Crea y diseña tu archivo YAML/\+JSON con la especificación Open\+API, con lo cual puedes crear tu proyecto con {\bfseries{Deli\+Gran\+Cli}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./DeliGranCli -\/-\/openapi /path/to/OpenAPI.yaml /path/to/DirProject}
+
+\end{DoxyCode}
+
+
+{\bfseries{Dir\+Project}} será el nombre de tu proyecto
+
+ 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{deligrancli.png}%deligrancli, Deli\+Gran\+Cli
+\end{DoxyInlineImage}
+     
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{dirproyect.png}%dirproyect, Dir project
+\end{DoxyInlineImage}
+   
+
+{\bfseries{Listo, usa tu IDE preferido para C con CMake, en mi caso uso vscode o x\+Code, puedes usar tambie, Qt-\/\+Creator}}
+
+ 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{vscode.png}%vscode, vscode
+\end{DoxyInlineImage}
+     
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{postman.png}%postman, postman
+\end{DoxyInlineImage}
+    

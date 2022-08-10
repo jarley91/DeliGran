@@ -1,0 +1,66 @@
+\hypertarget{a00053_source}{}\doxysection{DGUMarkup.\+h}
+\label{a00053_source}\index{DGUMarkup.h@{DGUMarkup.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DGU\_Markup\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DGU\_Markup\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{  \#include <stdbool.h>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{  \#include "{}\mbox{\hyperlink{a00059}{DGUString.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{  \#include "{}DGUMarkup.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{  \#include "{}DGULog.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{  \#include "{}DGUHashTable.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00175}{DGUMUFormats}} \{}
+\DoxyCodeLine{17     \textcolor{keywordtype}{string} YAML;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{string} JSON;}
+\DoxyCodeLine{19   \} \mbox{\hyperlink{a00175}{DGUMUFormats}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }DGUMUDocument DGUMUDocument;}
+\DoxyCodeLine{22   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }DGUMUNode DGUMUNode;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   \textcolor{keyword}{typedef} bool (*ArrayIterationDGUMUFunction)(\textcolor{keywordtype}{void} *node, \textcolor{keywordtype}{void} *aux);}
+\DoxyCodeLine{25   \textcolor{keyword}{typedef} bool (*PropertiesIterationDGUMUFunction)(\textcolor{keywordtype}{string} key, \textcolor{keywordtype}{string} value, \textcolor{keywordtype}{void} *aux);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }DGUMarkup DGUMarkup;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{a00179}{DGUMarkupEntity}} \{}
+\DoxyCodeLine{30     void (*setLogger)(DGUMarkup *oDGUMarkup, DGULog *oDGULog);}
+\DoxyCodeLine{31     void (*destroy)(DGUMarkup *oDGUMarkup);}
+\DoxyCodeLine{32     DGUMarkup *(*new)(void);}
+\DoxyCodeLine{33     void (*setPathFileDocument)(DGUMarkup *oDGUMarkup, \textcolor{keywordtype}{string} pathFileDocument);}
+\DoxyCodeLine{34     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getPathFileDocument)(DGUMarkup *oDGUMarkup);}
+\DoxyCodeLine{35     void (*setStringDocument)(DGUMarkup *oDGUMarkup, \textcolor{keywordtype}{string} stringDocument);}
+\DoxyCodeLine{36     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getStringDocument)(DGUMarkup *oDGUMarkup);}
+\DoxyCodeLine{37     bool (*isValidDocument)(DGUMarkup *oDGUMarkup);}
+\DoxyCodeLine{38     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getValueByPath)(DGUMarkup *oDGUMarkup, \textcolor{keywordtype}{string} pathNode);}
+\DoxyCodeLine{39     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*getNodeValue)(DGUMarkup *oDGUMarkup, \textcolor{keywordtype}{void} *node, \textcolor{keywordtype}{string} key);}
+\DoxyCodeLine{40     void (*setNodeKeyValueByPath)(DGUMarkup *oDGUMarkup, \textcolor{keywordtype}{string} nodePath, \textcolor{keywordtype}{string} key, \textcolor{keywordtype}{string} value);}
+\DoxyCodeLine{41     DGUMUDocument *(*newDocument)(DGUMarkup *oDGUMarkup);}
+\DoxyCodeLine{42     void (*destroyDcoument)(DGUMarkup *oDGUMarkup, DGUMUDocument *document);}
+\DoxyCodeLine{43     void (*addPropertyToDocument)(DGUMarkup *oDGUMarkup, DGUMUDocument *document, \textcolor{keywordtype}{string} key, \textcolor{keywordtype}{string} value);}
+\DoxyCodeLine{44     DGUMUNode *(*addNodeToDocument)(DGUMarkup *oDGUMarkup, DGUMUDocument *document, \textcolor{keywordtype}{string} key);}
+\DoxyCodeLine{45     void (*addNodeToNode)(DGUMarkup *oDGUMarkup, DGUMUNode *nodeSource, DGUMUNode *nodeDest);}
+\DoxyCodeLine{46     void (*addPropertyToNode)(DGUMarkup *oDGUMarkup, DGUMUNode *node, \textcolor{keywordtype}{string} key, \textcolor{keywordtype}{string} value);}
+\DoxyCodeLine{47     DGUMUNode *(*addArrayToNode)(DGUMarkup *oDGUMarkup, \textcolor{keywordtype}{string} keyArray, \textcolor{keywordtype}{string} keyNodeArray, DGUMUNode *nodeDest);}
+\DoxyCodeLine{48     DGUMUNode *(*newNode)(DGUMarkup *oDGUMarkup, \textcolor{keywordtype}{string} key);}
+\DoxyCodeLine{49     DGUMUNode *(*newNodeItemArray)(DGUMarkup *oDGUMarkup);}
+\DoxyCodeLine{50     void (*addPropertyToNodeFromNode)(DGUMarkup *oDGUMarkup, DGUMUNode *node, DGUMUNode *nodeValue);}
+\DoxyCodeLine{51     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*documentToString)(DGUMarkup *oDGUMarkup, DGUMUDocument *document, \textcolor{keywordtype}{string} format);}
+\DoxyCodeLine{52     \mbox{\hyperlink{a00059_a398c94ef2be132b6d19e77d12415e9f3}{string}} (*toString)(DGUMarkup *oDGUMarkup, \textcolor{keywordtype}{string} format);}
+\DoxyCodeLine{53     \mbox{\hyperlink{a00175}{DGUMUFormats}} (*getFormats)(void);}
+\DoxyCodeLine{54   \} \mbox{\hyperlink{a00179}{DGUMarkupEntity}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{57 \}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DGU\_Markup\_H}}
+
+\end{DoxyCode}

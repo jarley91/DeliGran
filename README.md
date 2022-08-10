@@ -45,10 +45,10 @@ Crea y diseña tu archivo YAML/JSON con la especificación OpenAPI, con lo cual 
 
 **DirProject** será el nombre de tu proyecto
 
-![deligrancli, DeliGranCli](images/deligrancli.png)
-![dirproyect, Dir project](images/dirproyect.png)
+![deligrancli, DeliGranCli](docs/images/deligrancli.png)
+![dirproyect, Dir project](docs/images/dirproyect.png)
 
 **Listo, usa tu IDE preferido para C con CMake, en mi caso uso vscode o xCode, puedes usar tambie, Qt-Creator**
 
-![vscode, vscode](images/vscode.png)
-![postman, postman](images/postman.png)
+![vscode, vscode](docs/images/vscode.png)
+![postman, postman](docs/images/postman.png)

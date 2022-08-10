@@ -1,0 +1,54 @@
+\hypertarget{a00062_source}{}\doxysection{DGULog.\+h}
+\label{a00062_source}\index{DGULog.h@{DGULog.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DGU\_LOG\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DGU\_LOG\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{  \#include "{}\mbox{\hyperlink{a00059}{DGUString.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{  \#define DGULFile \_\_FILE\_\_}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{  \#define DGULFunction (string)\_\_FUNCTION\_\_}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{  \#define DGULLine \_\_LINE\_\_}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00163}{DGULogTypes}} \{}
+\DoxyCodeLine{16     \textcolor{keywordtype}{string} CONSOLE;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{string} FILE;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{string} CONSOLE\_AND\_FILE;}
+\DoxyCodeLine{19   \} \mbox{\hyperlink{a00163}{DGULogTypes}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00167}{DGULogLeves}} \{}
+\DoxyCodeLine{22     \textcolor{keywordtype}{string} INFO;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{string} DEBUG;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{string} WARNING;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{string} ERROR;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{string} ALL;}
+\DoxyCodeLine{27   \} \mbox{\hyperlink{a00167}{DGULogLeves}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }DGULog DGULog;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{a00171}{DGULogEntity}} \{}
+\DoxyCodeLine{32     \mbox{\hyperlink{a00163}{DGULogTypes}} (*getTypes)(void);}
+\DoxyCodeLine{33     \mbox{\hyperlink{a00167}{DGULogLeves}} (*getLeves)(void);}
+\DoxyCodeLine{34     }
+\DoxyCodeLine{35     DGULog *(*new)(void);}
+\DoxyCodeLine{36     void (*setFormatDateTime)(DGULog *oDGULog, \textcolor{keywordtype}{string} formatDateTime);}
+\DoxyCodeLine{37     void (*setFilePath)(DGULog *oDGULog, \textcolor{keywordtype}{string} filePath);}
+\DoxyCodeLine{38     void (*setType)(DGULog *oDGULog, \textcolor{keywordtype}{string} type);}
+\DoxyCodeLine{39     void (*setLevel)(DGULog *oDGULog, \textcolor{keywordtype}{string} level);}
+\DoxyCodeLine{40     void (*writeLog)(DGULog *oDGULog, \textcolor{keywordtype}{string} level, \textcolor{keywordtype}{string} source, \textcolor{keywordtype}{string} function, \textcolor{keywordtype}{int} line, \textcolor{keywordtype}{string} message, ...);}
+\DoxyCodeLine{41     void (*writeLogMessage)(DGULog *oDGULog, \textcolor{keywordtype}{string} message);}
+\DoxyCodeLine{42   \} \mbox{\hyperlink{a00171}{DGULogEntity}};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DGU\_LOG\_H}}
+
+\end{DoxyCode}

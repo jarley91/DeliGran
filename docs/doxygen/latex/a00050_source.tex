@@ -1,0 +1,42 @@
+\hypertarget{a00050_source}{}\doxysection{DGUThread\+Mutex.\+h}
+\label{a00050_source}\index{DGUThreadMutex.h@{DGUThreadMutex.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DGU\_THREAD\_MUTEX\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DGU\_THREAD\_MUTEX\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{  \#include <stdbool.h>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{  \#include "{}DGULog.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{  \#include "{}DGUThreadMutex.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{  \#include "{}\mbox{\hyperlink{a00059}{DGUString.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{a00191}{DGUThreadMutexTypes}} \{}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} normal;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} errorCheck;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} recursive;}
+\DoxyCodeLine{19   \} \mbox{\hyperlink{a00191}{DGUThreadMutexTypes}};}
+\DoxyCodeLine{20   }
+\DoxyCodeLine{21   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }DGUThreadMutex DGUThreadMutex;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{a00195}{DGUThreadMutexEntity}} \{}
+\DoxyCodeLine{24     \mbox{\hyperlink{a00191}{DGUThreadMutexTypes}} (*getTypes)(void);}
+\DoxyCodeLine{25     DGUThreadMutex *(*new)(\textcolor{keywordtype}{int} type, \textcolor{keywordtype}{string} source, \textcolor{keywordtype}{string} function, \textcolor{keywordtype}{int} line);}
+\DoxyCodeLine{26     void (*setLogger)(DGUThreadMutex *oDGUThreadMutex, DGULog *oDGULog);}
+\DoxyCodeLine{27     void (*destroy)(DGUThreadMutex *oDGUThreadMutex, \textcolor{keywordtype}{string} source, \textcolor{keywordtype}{string} function, \textcolor{keywordtype}{int} line);}
+\DoxyCodeLine{28     bool (*lock)(DGUThreadMutex *oDGUThreadMutex, \textcolor{keywordtype}{string} source, \textcolor{keywordtype}{string} function, \textcolor{keywordtype}{int} line);}
+\DoxyCodeLine{29     bool (*unlock)(DGUThreadMutex *oDGUThreadMutex, \textcolor{keywordtype}{string} source, \textcolor{keywordtype}{string} function, \textcolor{keywordtype}{int} line);}
+\DoxyCodeLine{30   \} \mbox{\hyperlink{a00195}{DGUThreadMutexEntity}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{33 \}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DGU\_THREAD\_MUTEX\_H}}
+
+\end{DoxyCode}
